@@ -11,7 +11,6 @@ function TriviaService($http) {
             self.firstIndex = Math.floor(Math.random() * 50);
             self.secondIndex = Math.floor(Math.random() * 50);
             self.thirdIndex = Math.floor(Math.random() * 50);
-            console.log(self.firstIndex, self.secondIndex, self.thirdIndex);
             return [self.beerList[self.firstIndex], self.beerList[self.secondIndex], self.beerList[self.thirdIndex]];
         });
     }

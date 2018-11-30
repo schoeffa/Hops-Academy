@@ -1,8 +1,8 @@
-<section class="beer-choices" ng-repeat="beer in $ctrl.currentBeers">
+<section show-info class="beer-choices" ng-repeat="beer in $ctrl.currentBeers">
     <img class="logo" src="{{beer.labels.medium || 'images/drunken_duck_Beer_2.svg'}}">
     <p class="beer-name">{{beer.name}}</p>
-    <section>
-        <p>ABV: {{beer.abv}}%</p>
+    <section class="extend-info">
+        <p>ABV: {{beer.abv || '4.5'}}%</p>
         <p>{{beer.style.category.name}}</p>
     </section>
 </section>
