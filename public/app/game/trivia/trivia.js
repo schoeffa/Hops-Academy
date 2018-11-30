@@ -1,12 +1,12 @@
 "use strict";
 const trivia = {
-   templateUrl: "/app/game/trivia/trivia.html",
-   controller: ["TriviaService", function (TriviaService) {
-       const vm = this;
+    templateUrl: "/app/game/trivia/trivia.html",
+    controller: ["TriviaService", function (TriviaService) {
+        const vm = this;
 
-       vm.user = {
-           difficulty: "easy"
-       }
+        vm.user = {
+            difficulty: "easy"
+        }
 
        vm.search = () => {
            TriviaService.getTrivia(vm.user.difficulty).then((response) => {
@@ -16,10 +16,9 @@ const trivia = {
            })
        }
 
-
-   }]
+    }]
 }
 
 angular
-   .module("HopsAcademy")
-   .component("trivia", trivia)
+    .module("HopsAcademy")
+    .component("trivia", trivia)
