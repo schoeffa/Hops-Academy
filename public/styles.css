@@ -2,19 +2,36 @@ beer-list {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 800px;
+    height: 500px;
+    margin-top: 150px;
     font-family: 'Kreon', serif;
+    flex-wrap: wrap;
 }
 
 .beer-choices {
-    width: 30%;
+    width: 150px;
+    height:200px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.beer-choices p {
+    margin: 5px 0px;
 }
 
 .logo {
     width: 100%;
-    /* height: 100px; */
 }
 
 .beer-name {
     font-family: 'Kreon', serif;
+    font-size: 1.25em;
+}
+
+.extend-info {
+    display: none;
+    flex-direction: column;
+    align-items: center;
 }
