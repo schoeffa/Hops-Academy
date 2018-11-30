@@ -1,0 +1,11 @@
+<header>
+    <!-- beer imagery -->
+</header>
+
+<section >
+    <button ng-click="$ctrl.search()">Click me</button>
+</section>
+<section ng-repeat="query in listOfQuestions">
+    <p>{{ listOfQuestions.catagory }}</p>
+    <p>{{ query.question }}</p>
+</section>
