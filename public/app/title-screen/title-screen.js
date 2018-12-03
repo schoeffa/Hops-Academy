@@ -1,6 +1,6 @@
 "use strict";
 const titleScreen = {
-    templateUrl: "title-screen.html",
+    templateUrl: "app/title-screen/title-screen.html",
     controller: [function() {
         const vm = this;
     }]
