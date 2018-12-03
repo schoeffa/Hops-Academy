@@ -1,5 +1,11 @@
 body {
     margin: 0;
+    background-image: url(images/beer-labels.jpg);
+
+    background: linear-gradient( rgba(225,229,231,.5), rgba(225,229,231,.5)), url(images/beer-labels.jpg);
+    background-size: cover;
+    background-repeat: none;
+    background-position: center;
 }
 
 .pick-title {
@@ -130,6 +136,7 @@ h4 {
     width: 100%;
     justify-content: center;
     font-size: 18px;
+    text-shadow: 2px 2px rgba(30, 45, 47, .2);
 }
 
 .characters img {
@@ -150,6 +157,7 @@ h4 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
 }
 
 @media only screen and (min-width: 600px) {

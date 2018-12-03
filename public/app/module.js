@@ -15,4 +15,3 @@ angular
                 template: "<title-screen></title-screen>"
             })
     }])
-    
