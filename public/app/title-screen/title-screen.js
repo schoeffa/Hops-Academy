@@ -1,8 +1,11 @@
 "use strict";
 const titleScreen = {
     templateUrl: "app/title-screen/title-screen.html",
-    controller: [function() {
+    controller: ["$location", function($location) {
         const vm = this;
+        vm.startGame = () => {
+            $location.path("/beerList")
+        }
     }]
 }
 
