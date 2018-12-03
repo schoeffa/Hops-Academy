@@ -1,6 +1,6 @@
 "use strict";
 const trivia = {
-    templateUrl: "/app/game/trivia/trivia.html",
+    templateUrl: "app/game/trivia/trivia.html",
     controller: ["TriviaService", function (TriviaService) {
         const vm = this;
 
