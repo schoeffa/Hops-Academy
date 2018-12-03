@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 beer-list {
     display: flex;
     justify-content: space-around;
@@ -10,8 +14,8 @@ beer-list {
 
 .beer-choices {
     width: 150px;
-    height:200px;
-    display:flex;
+    height: 200px;
+    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -34,4 +38,92 @@ beer-list {
     display: none;
     flex-direction: column;
     align-items: center;
+}
+
+.stats-bar {
+    display: flex;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+.desk-stat {
+    display: none;
+}
+
+.drunk-stat {
+    font-family: 'Kreon';
+    text-align: center;
+    margin: 0 10px;
+    height: 15%;
+    width: 25%;
+    background-color: #1E2D2F;
+    color: #F7DBA7;
+}
+
+.drunk-stat p,
+.round-num p {
+    margin-bottom: 8px;
+}
+
+.num-display {
+    font-size: 3em;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.round-num {
+    font-family: 'Kreon';
+    text-align: center;
+    margin: 0 10px;
+    height: 15%;
+    width: 25%;
+    background-color: #1E2D2F;
+    color: #F7DBA7;
+}
+
+@media only screen and (min-width: 1200px) {
+
+    .desk-stat {
+        display: inline-block;
+    }
+
+    .stats-bar {
+        min-width: 237px;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #1E2D2F;
+        top: 0px;
+        width: 15%;
+        height: 100%;
+        border-right: 3px groove #F7DBA7;
+    }
+
+    .desk-stat {
+        font-family: 'Kreon';
+        background-color: #1E2D2F;
+        color: #F7DBA7;
+        text-align: center;
+    }
+
+    .drunk-stat,
+    .round-num {
+        width: 100%;
+        margin: 0;
+        height: auto;
+    }
+
+    .stat-header {
+        font-size: 1.5em;
+        text-shadow: 2px 2px #C57B57;
+        -webkit-text-stroke-color: #1E2D2F;
+        -webkit-text-stroke-width: 1px;
+        margin-bottom: 0px;
+    }
+
+    .num-display {
+        -webkit-text-stroke-color: #1E2D2F;
+        -webkit-text-stroke-width: 1px;
+    }
 }

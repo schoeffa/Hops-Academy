@@ -1,6 +1,6 @@
 "use strict";
 const stats = {
-    templateUrl: "stats.html",
+    templateUrl: "app/game/stats/stats.html",
     controller: [function() {
         const vm = this;
     }]
