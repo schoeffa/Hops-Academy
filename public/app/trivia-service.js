@@ -24,6 +24,42 @@ function TriviaService($http) {
         return $http({
             method: "GET",
             url: `https://opentdb.com/api.php?amount=1&category=${self.random}&difficulty=${difficulty}&type=multiple`
+        }).then((result) => {
+            self.trivia = result.data.results["0"];
+            self.question = {
+                question: self.trivia.question,
+                answers: [
+                    {
+                        answer: self.trivia.incorrect_answers[0], 
+                        eval: false
+                    },
+                    {
+                        answer: self.trivia.incorrect_answers[1], 
+                        eval: false
+                    },
+                    {
+                        answer: self.trivia.incorrect_answers[2], 
+                        eval: false
+                    },
+                    {
+                        answer: self.trivia.correct_answer, 
+                        eval: true
+                    }
+                ]
+            }
+            self.shuffleAnswers = () => {
+                for (let i = self.question.answers.length - 1; i >= 0; i--) {
+
+                    let randomIndex = Math.floor(Math.random()*(i+1));
+                    let itemAtIndex = self.question.answers[randomIndex];
+            
+                    self.question.answers[randomIndex] = self.question.answers[i];
+                    self.question.answers[i] = itemAtIndex;
+                }
+                return self.question.answers;
+            }
+            self.shuffleAnswers();
+            return self.question
         })
     }
 
