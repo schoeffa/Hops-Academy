@@ -1,13 +1,8 @@
-<header>
-    <!-- beer imagery -->
-</header>
-
 <section>
     <button ng-click="$ctrl.search()">Click me</button>
 </section>
 <section class="question-container">
     <p>{{ $ctrl.listOfQuestions.category }}</p>
-    <!-- Maybe remove above-->
     <p class="question">{{ $ctrl.currentQuestion.question }}</p>
     <p>{{ $ctrl.currentQuestion.answers[0].answer }}</p>
     <p>{{ $ctrl.currentQuestion.answers[1].answer }}</p>
