@@ -5,6 +5,7 @@ const beerList = {
         const vm= this;
         TriviaService.getBeer().then((result) => {
             vm.currentBeers = result;
+            console.log(vm.currentBeers);
         });
     }]
 }
