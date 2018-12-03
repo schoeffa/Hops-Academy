@@ -5,7 +5,13 @@ function showInfo() {
         replace: false,
         link: function($scope, $element, $attrs) {
             $element.on("click", () => {
-                $element[0].children[2].style.display = "flex";
+                console.log($element);
+                console.log($scope);
+                $element[0].children[1].children[1].style.display = "flex";
+                for (let beer of $element[0].parentNode.children) {
+                    // $scope.$destroy(beer);
+                    beer.removeAttribute("show-info");
+                }
             });
         }
     }
