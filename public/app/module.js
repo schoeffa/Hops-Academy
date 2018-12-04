@@ -5,7 +5,7 @@ angular
             .when("/titleScreen", {
                 template: "<title-screen></title-screen"
             })
-            .when("/games", {
+            .when("/game", {
                 template: "<game></game>"
             })
             .when("/beerList", {
