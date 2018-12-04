@@ -1,5 +1,5 @@
 <p class="pick-title">Pick your beer</p>
-<section show-info class="beer-choices" ng-repeat="beer in $ctrl.currentBeers">
+<section ng-click="$ctrl.beerSelect(beer);" show-info class="beer-choices" ng-repeat="beer in $ctrl.currentBeers">
     <img class="logo" src="{{beer.labels.medium || 'images/drunken_duck_Beer_2.svg'}}">
     <section class="beer-info">
         <p class="beer-name">{{beer.name}}</p>

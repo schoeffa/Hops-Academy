@@ -11,6 +11,10 @@ function TriviaService($http) {
         console.log(self.user);
     }
 
+    self.updateDrunkenness = (abv) => {
+        self.user.drunkenness = self.user.drunkenness + Math.round((Number(abv)/Number(self.user.tolerance)) +1);
+    }
+
     self.getUser= () => {
         return self.user;
     }
