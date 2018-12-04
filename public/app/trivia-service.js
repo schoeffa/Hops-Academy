@@ -27,26 +27,27 @@ function TriviaService($http) {
         }).then((result) => {
             self.trivia = result.data.results["0"];
             self.question = {
-                question: self.trivia.question,
+                question: self.trivia.question.replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'"),
                 answers: [
                     {
-                        answer: self.trivia.incorrect_answers[0], 
+                        answer: self.trivia.incorrect_answers[0].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'"), 
                         eval: false
                     },
                     {
-                        answer: self.trivia.incorrect_answers[1], 
+                        answer: self.trivia.incorrect_answers[1].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'"), 
                         eval: false
                     },
                     {
-                        answer: self.trivia.incorrect_answers[2], 
+                        answer: self.trivia.incorrect_answers[2].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'"),
                         eval: false
                     },
                     {
-                        answer: self.trivia.correct_answer, 
+                        answer: self.trivia.correct_answer.replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'"),
                         eval: true
                     }
                 ]
             }
+            // self.cleanQuestion = self.question.question
             self.shuffleAnswers = () => {
                 for (let i = self.question.answers.length - 1; i >= 0; i--) {
 
@@ -59,6 +60,7 @@ function TriviaService($http) {
                 return self.question.answers;
             }
             self.shuffleAnswers();
+            
             return self.question
         })
     }
