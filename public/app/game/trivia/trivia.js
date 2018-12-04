@@ -12,16 +12,11 @@ const trivia = {
             TriviaService.getTrivia(vm.user.difficulty).then((result) => {
                 vm.currentQuestion = result;
                 console.log(vm.currentQuestion);
+                
             })
         }
 
-    //    vm.search = () => {
-    //        TriviaService.getTrivia(vm.user.difficulty).then((response) => {
-    //            console.log(response);
-    //            vm.listOfQuestions = response.data.results["0"];
-    //            console.log(vm.listOfQuestions)
-    //        })
-    //    }
+        vm.search();
 
     }]
 }

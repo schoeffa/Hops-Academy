@@ -25,59 +25,56 @@ function TriviaService($http) {
             method: "GET"
         }).then((result) => {
             self.beerList = result.data.data;
-            self.firstIndex = Math.floor(Math.random() * 50);
-            self.secondIndex = Math.floor(Math.random() * 50);
-            self.thirdIndex = Math.floor(Math.random() * 50);
-            return [self.beerList[self.firstIndex], self.beerList[self.secondIndex], self.beerList[self.thirdIndex]];
+            self.shuffleBeers = () => {
+                for (let i = self.beerList.length - 1; i >= 0; i--) {
+
+                    let randomIndex = Math.floor(Math.random() * (i + 1));
+                    let itemAtIndex = self.beerList[randomIndex];
+
+                    self.beerList[randomIndex] = self.beerList[i];
+                    self.beerList[i] = itemAtIndex;
+                }
+                return self.beerList;
+            }
+            self.shuffleBeers();
+            return [self.beerList[0], self.beerList[1], self.beerList[2]];
         });
     }
 
 
     // First question//
     self.getTrivia = (difficulty) => {
-        self.category = [9, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32];
-        self.random = self.category[Math.floor(Math.random() * self.category.length)];
-        console.log(self.random);
         return $http({
             method: "GET",
-            url: `https://opentdb.com/api.php?amount=1&category=${self.random}&difficulty=${difficulty}&type=multiple`
+            url: `https://opentdb.com/api.php?amount=1&difficulty=${difficulty}&type=multiple`
         }).then((result) => {
             self.trivia = result.data.results["0"];
+            self.fix = () => {
+                replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é")
+            }
             self.question = {
-                question: self.trivia.question.replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'"),
+                question: self.trivia.question.replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é"),
                 answers: [
                     {
 
-                        answer: self.trivia.incorrect_answers[0].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'"), 
+                        answer: self.trivia.incorrect_answers[0].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é"), 
                         eval: false
                     },
                     {
-                        answer: self.trivia.incorrect_answers[1].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'"), 
+                        answer: self.trivia.incorrect_answers[1].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é"), 
                         eval: false
                     },
                     {
-                        answer: self.trivia.incorrect_answers[2].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'"),
+                        answer: self.trivia.incorrect_answers[2].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é"),
                         eval: false
                     },
                     {
-                        answer: self.trivia.correct_answer.replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'"),
+                        answer: self.trivia.correct_answer.replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é"),
                         eval: true
                     }
                 ]
             }
             // self.cleanQuestion = self.question.question
-            self.shuffleAnswers = () => {
-                for (let i = self.question.answers.length - 1; i >= 0; i--) {
-
-                    let randomIndex = Math.floor(Math.random() * (i + 1));
-                    let itemAtIndex = self.question.answers[randomIndex];
-
-                    self.question.answers[randomIndex] = self.question.answers[i];
-                    self.question.answers[i] = itemAtIndex;
-                }
-                return self.question.answers;
-            }
-            self.shuffleAnswers();
             
             return self.question
         })

@@ -5,11 +5,12 @@
 
 
 
- <section class="question-container">
-    <p>{{ $ctrl.listOfQuestions.category }}</p>
+<section class="question-container">
     <p class="question">{{ $ctrl.currentQuestion.question }}</p>
-    <p>{{ $ctrl.currentQuestion.answers[0].answer }}</p>
-    <p>{{ $ctrl.currentQuestion.answers[1].answer }}</p>
-    <p>{{ $ctrl.currentQuestion.answers[2].answer }}</p>
-    <p>{{ $ctrl.currentQuestion.answers[3].answer }}</p>
- </section>
+    <section class="answers">
+        <p>{{ $ctrl.currentQuestion.answers[0].answer }}</p>
+        <p>{{ $ctrl.currentQuestion.answers[1].answer }}</p>
+        <p>{{ $ctrl.currentQuestion.answers[2].answer }}</p>
+        <p>{{ $ctrl.currentQuestion.answers[3].answer }}</p>
+    </section>
+</section>

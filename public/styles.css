@@ -8,6 +8,8 @@ body {
     background-position: center;
 }
 
+/* beer component */
+
 beer-list {
     flex-direction: column;
     display: flex;
@@ -51,6 +53,8 @@ beer-list {
     flex-direction: column;
     align-items: center;
 }
+
+/* stats component */
 
 .stats-bar {
     display: flex;
@@ -97,6 +101,8 @@ beer-list {
     background-color: #1E2D2F;
     color: #F7DBA7;
 }
+
+/* title component */
 
 h2 {
     text-align: center;
@@ -152,9 +158,47 @@ h4 {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    
+    justify-content: center;  
 }
+
+/* trivia component */
+
+trivia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.question-container {
+    font-family: 'Kreon', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.question {
+    background-color: white;
+    font-size: 28px;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+
+.answers p {
+    background-color: white;
+    font-size: 25px;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 40px;
+    min-width: 100px;
+    cursor: pointer;
+}
+
+
 
 @media only screen and (min-width: 600px) {
 
@@ -296,8 +340,18 @@ h4 {
     .question-container {
         background-image: url("../public/images/menu.png");
         position: absolute;
-        width: 500px;
-        height: 300px;
+        top: 200px;
+    }
+
+    .answers p {
+        font-size: 35px;
+        max-width: 80%;
+        min-width: 300px;
+    }
+
+    .question {
+        font-size: 42px;
+        width: 80%;
     }
 
 }
