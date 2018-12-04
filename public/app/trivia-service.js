@@ -31,32 +31,32 @@ function TriviaService($http) {
 
     // First question//
     self.getTrivia = (difficulty) => {
-        self.category = [9, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32];
-        self.random = self.category[Math.floor(Math.random() * self.category.length)];
-        console.log(self.random);
         return $http({
             method: "GET",
-            url: `https://opentdb.com/api.php?amount=1&category=${self.random}&difficulty=${difficulty}&type=multiple`
+            url: `https://opentdb.com/api.php?amount=1&difficulty=${difficulty}&type=multiple`
         }).then((result) => {
             self.trivia = result.data.results["0"];
+            self.fix = () => {
+                replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é")
+            }
             self.question = {
-                question: self.trivia.question.replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'"),
+                question: self.trivia.question.replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é"),
                 answers: [
                     {
 
-                        answer: self.trivia.incorrect_answers[0].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'"), 
+                        answer: self.trivia.incorrect_answers[0].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é"), 
                         eval: false
                     },
                     {
-                        answer: self.trivia.incorrect_answers[1].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'"), 
+                        answer: self.trivia.incorrect_answers[1].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é"), 
                         eval: false
                     },
                     {
-                        answer: self.trivia.incorrect_answers[2].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'"),
+                        answer: self.trivia.incorrect_answers[2].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é"),
                         eval: false
                     },
                     {
-                        answer: self.trivia.correct_answer.replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'"),
+                        answer: self.trivia.correct_answer.replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é"),
                         eval: true
                     }
                 ]

@@ -15,13 +15,7 @@ const trivia = {
             })
         }
 
-    //    vm.search = () => {
-    //        TriviaService.getTrivia(vm.user.difficulty).then((response) => {
-    //            console.log(response);
-    //            vm.listOfQuestions = response.data.results["0"];
-    //            console.log(vm.listOfQuestions)
-    //        })
-    //    }
+        vm.search();
 
     }]
 }
