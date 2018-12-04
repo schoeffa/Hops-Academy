@@ -21,10 +21,19 @@ function TriviaService($http) {
             method: "GET"
         }).then((result) => {
             self.beerList = result.data.data;
-            self.firstIndex = Math.floor(Math.random() * 50);
-            self.secondIndex = Math.floor(Math.random() * 50);
-            self.thirdIndex = Math.floor(Math.random() * 50);
-            return [self.beerList[self.firstIndex], self.beerList[self.secondIndex], self.beerList[self.thirdIndex]];
+            self.shuffleBeers = () => {
+                for (let i = self.beerList.length - 1; i >= 0; i--) {
+
+                    let randomIndex = Math.floor(Math.random() * (i + 1));
+                    let itemAtIndex = self.beerList[randomIndex];
+
+                    self.beerList[randomIndex] = self.beerList[i];
+                    self.beerList[i] = itemAtIndex;
+                }
+                return self.beerList;
+            }
+            self.shuffleBeers();
+            return [self.beerList[0], self.beerList[1], self.beerList[2]];
         });
     }
 
@@ -62,18 +71,6 @@ function TriviaService($http) {
                 ]
             }
             // self.cleanQuestion = self.question.question
-            self.shuffleAnswers = () => {
-                for (let i = self.question.answers.length - 1; i >= 0; i--) {
-
-                    let randomIndex = Math.floor(Math.random() * (i + 1));
-                    let itemAtIndex = self.question.answers[randomIndex];
-
-                    self.question.answers[randomIndex] = self.question.answers[i];
-                    self.question.answers[i] = itemAtIndex;
-                }
-                return self.question.answers;
-            }
-            self.shuffleAnswers();
             
             return self.question
         })
