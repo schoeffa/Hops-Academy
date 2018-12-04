@@ -1,16 +1,14 @@
-<section>
-    <button ng-click="$ctrl.search()">Click me</button>
+<section ng-show="$ctrl.showCorrect">
+    <p>Congratulations! Have a beer!</p>
+    <button ng-click="$ctrl.newRound()">Next Round</button>
 </section>
-
-
-
 
 <section class="question-container">
     <p class="question">{{ $ctrl.currentQuestion.question }}</p>
     <section class="answers">
-        <p>{{ $ctrl.currentQuestion.answers[0].answer }}</p>
-        <p>{{ $ctrl.currentQuestion.answers[1].answer }}</p>
+        <p ng-repeat="answer in $ctrl.currentQuestion.answers" ng-click="$ctrl.evaluate(answer.eval)">{{ answer.answer }}</p>
+        <!-- <p>{{ $ctrl.currentQuestion.answers[1].answer }}</p>
         <p>{{ $ctrl.currentQuestion.answers[2].answer }}</p>
-        <p>{{ $ctrl.currentQuestion.answers[3].answer }}</p>
+        <p>{{ $ctrl.currentQuestion.answers[3].answer }}</p> -->
     </section>
 </section>
