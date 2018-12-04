@@ -1,8 +1,10 @@
 "use strict";
 const stats = {
     templateUrl: "app/game/stats/stats.html",
-    controller: [function() {
+    controller: ["TriviaService", function(TriviaService) {
         const vm = this;
+        vm.user = TriviaService.getUser();
+        
     }]
 }
 
