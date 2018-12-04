@@ -2,11 +2,13 @@
 
 function TriviaService($http) {
     const self = this;
+    
     self.setUser = (intelligence, tolerance) => {
         self.user = {
             intelligence: intelligence,
             tolerance: tolerance,
-            drunkenness: 0
+            drunkenness: 0,
+            difficulty: "easy"
         }
         console.log(self.user);
     }
@@ -40,8 +42,6 @@ function TriviaService($http) {
             return [self.beerList[0], self.beerList[1], self.beerList[2]];
         });
     }
-
-
     // First question//
     self.getTrivia = (difficulty) => {
         return $http({
@@ -74,10 +74,25 @@ function TriviaService($http) {
                     }
                 ]
             }
+            self.shuffleAnswers = () => {
+                for (let i = self.question.answers.length - 1; i >= 0; i--) {
+
+                    let randomIndex = Math.floor(Math.random() * (i + 1));
+                    let itemAtIndex = self.question.answers[randomIndex];
+
+                    self.question.answers[randomIndex] = self.question.answers[i];
+                    self.question.answers[i] = itemAtIndex;
+                }
+                return self.question.answers;
+            }
             // self.cleanQuestion = self.question.question
-            
+            self.shuffleAnswers()
             return self.question
         })
+    }
+
+    self.nextRound = () => {
+        
     }
 
 }

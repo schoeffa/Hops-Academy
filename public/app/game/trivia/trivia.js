@@ -1,23 +1,17 @@
 "use strict";
 const trivia = {
     templateUrl: "app/game/trivia/trivia.html",
+    bindings: {newRound: "&", currentQuestion: "<", showCorrect: "=", showWrong: "="},
     controller: ["TriviaService", function (TriviaService) {
         const vm = this;
 
-        vm.user = {
-            difficulty: "easy"
-        }
-
-        vm.search = () => {
-            TriviaService.getTrivia(vm.user.difficulty).then((result) => {
-                vm.currentQuestion = result;
-                console.log(vm.currentQuestion);
-                
-            })
-        }
-
-        vm.search();
-
+        vm.evaluate = (truthiness) => {
+            if(truthiness) {
+                vm.showCorrect = true;
+            } else {
+                vm.showWrong = true;
+            }
+        } 
     }]
 }
 
