@@ -212,6 +212,7 @@ h4 {
     }
 
     .avatar {
+        display: block;
         width: 100px;
         height: 100px;
     }
@@ -295,4 +296,12 @@ h4 {
         display: flex;
         flex-direction: column;
     }
+
+    .question-container {
+        background-image: url("../public/images/menu.png");
+        position: absolute;
+        width: 500px;
+        height: 300px;
+    }
+
 }

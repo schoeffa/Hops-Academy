@@ -2,6 +2,19 @@
 
 function TriviaService($http) {
     const self = this;
+    self.setUser = (intelligence, tolerance) => {
+        self.user = {
+            intelligence: intelligence,
+            tolerance: tolerance,
+            drunkenness: 0
+        }
+        console.log(self.user);
+    }
+
+    self.getUser= () => {
+        return self.user;
+    }
+
     self.getBeer = () => {
         return $http({
             url: "/beer",
@@ -30,6 +43,7 @@ function TriviaService($http) {
                 question: self.trivia.question.replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'"),
                 answers: [
                     {
+
                         answer: self.trivia.incorrect_answers[0].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'"), 
                         eval: false
                     },
@@ -51,9 +65,9 @@ function TriviaService($http) {
             self.shuffleAnswers = () => {
                 for (let i = self.question.answers.length - 1; i >= 0; i--) {
 
-                    let randomIndex = Math.floor(Math.random()*(i+1));
+                    let randomIndex = Math.floor(Math.random() * (i + 1));
                     let itemAtIndex = self.question.answers[randomIndex];
-            
+
                     self.question.answers[randomIndex] = self.question.answers[i];
                     self.question.answers[i] = itemAtIndex;
                 }
