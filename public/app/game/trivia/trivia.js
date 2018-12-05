@@ -18,6 +18,9 @@ const trivia = {
                 vm.showWrong = true;
             }
         } 
+        vm.newGame = () => {
+            TriviaService.newGame()
+        }     
     }]
 }
 

@@ -2,6 +2,10 @@
     <p>Congratulations! Have a beer!</p>
     <button ng-click="$ctrl.newRound()">Next Round</button>
 </section>
+<section ng-show="$ctrl.showWrong" class="wrongOverlay">
+    <p>Sorry that was wrong </p>
+    <button ng-click="$ctrl.newGame()" class="newGamebutton">Play again?</button>
+</section>
 
 <section class="winner-winner-chicken-dinner" ng-show="$ctrl.showWin">
     <p>Congratulations, you win!</p>
