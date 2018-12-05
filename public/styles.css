@@ -9,7 +9,9 @@ body {
 }
 
 /* beer component */
-
+.beer-overlay {
+    display:none;
+}
 beer-list {
     flex-direction: column;
     display: flex;
@@ -198,6 +200,29 @@ trivia {
     min-width: 100px;
     cursor: pointer;
 }
+.wrongOverlay{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    color: #F7DBA7;
+    height: 100vh;
+    z-index: 9999;
+    background-color: rgba(30, 45, 47, .99);
+    text-align: center;
+    font-family: "Cinzel"; 
+}
+.wrongOverlay button {
+    background-color: #1E2D2F;
+    border: 3px solid #F7DBA7;
+    color: #F7DBA7;
+    font-size: .6em;
+    padding: 5px;
+    font-family: "Cinzel";
+
+}
 
 
 
@@ -233,7 +258,7 @@ trivia {
         font-size: 30px;
     }
 
-    .beer-overlay {
+    .beer-overlay, .wrongOverlay {
         display: flex;
         font-family: 'Cinzel';
         align-items: center;
@@ -246,6 +271,9 @@ trivia {
         position: absolute;
         z-index: 9999;
         color: white;
+    }
+    .wrongOverlay {
+        font-size: 3em;
     }
 
     .winner-winner-chicken-dinner {
@@ -264,6 +292,7 @@ trivia {
         z-index: 9999;
         color: white;
     }
+
 }
 
 @media only screen and (min-width: 1200px) {
