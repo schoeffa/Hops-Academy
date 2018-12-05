@@ -256,7 +256,13 @@ trivia {
     font-family: "Cinzel";
 }
 
+.round2 {
+    animation: xvision 2s cubic-bezier(0,.28,1,1.25) infinite alternate;
+}
 
+@keyframes xvision {
+    
+}
 
 @media only screen and (min-width: 600px) {
 
