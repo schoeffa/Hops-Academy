@@ -3,7 +3,7 @@ const game = {
     template: `<section class="game-wrapper">
     <stats user="$ctrl.user" round-num="$ctrl.roundNum"></stats>
     <section class="right-pane">
-    <beer-list show-pick="$ctrl.showPick" current-beers="$ctrl.currentBeers"></beer-list>
+    <beer-list show-correct="$ctrl.showCorrect" show-pick="$ctrl.showPick" current-beers="$ctrl.currentBeers"></beer-list>
     <trivia round-num="$ctrl.roundNum" show-pick="$ctrl.showPick" evaluate="$ctrl.evaluate()" show-correct="$ctrl.showCorrect" show-wrong="$ctrl.showWrong" new-round="$ctrl.newRound()" current-question="$ctrl.currentQuestion"></trivia>
     </section>
     </section>`,
@@ -20,7 +20,7 @@ const game = {
             vm.search();
             vm.beers();
             vm.showCorrect = false;
-            vm.showPick = true;
+            // vm.showPick = true;
         }
 
         vm.search = () => {

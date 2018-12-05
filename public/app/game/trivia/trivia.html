@@ -1,6 +1,7 @@
-<section ng-show="$ctrl.showCorrect">
-    <p>Congratulations! Have a beer!</p>
-    <button ng-click="$ctrl.newRound()">Next Round</button>
+<section class="correct-overlay" ng-show="$ctrl.showCorrect">
+    <p class="congrats-page-title">Congratulations!</p> 
+    <p>Have a beer!</p>
+    <button ng-click="$ctrl.newRound();">Next Round</button>
 </section>
 <section ng-show="$ctrl.showWrong" class="wrongOverlay">
     <p>Sorry that was wrong </p>
