@@ -167,6 +167,7 @@ trivia {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
 }
 
 .question-container {
@@ -230,6 +231,38 @@ trivia {
 
     h4 {
         font-size: 30px;
+    }
+
+    .beer-overlay {
+        display: flex;
+        font-family: 'Cinzel';
+        align-items: center;
+        justify-content: center;
+        font-size: 8em;
+        color: #F7DBA7;
+        width: 89%;
+        height: 84.5%;
+        background-color: rgba(30,45,47,.99);
+        position: absolute;
+        z-index: 9999;
+        color: white;
+    }
+
+    .winner-winner-chicken-dinner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-family: 'Cinzel';
+        align-items: center;
+        justify-content: center;
+        font-size: 4em;
+        color: #F7DBA7;
+        width: 89%;
+        height: 84.5%;
+        background-color: rgba(30,45,47,.99);
+        position: absolute;
+        z-index: 9999;
+        color: white;
     }
 }
 
