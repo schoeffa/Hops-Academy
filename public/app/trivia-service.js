@@ -2,7 +2,7 @@
 
 function TriviaService($http, $location) {
     const self = this;
-    
+
     self.setUser = (intelligence, tolerance) => {
         self.user = {
             intelligence: intelligence,
@@ -10,16 +10,16 @@ function TriviaService($http, $location) {
             drunkenness: 0,
             difficulty: "easy"
         }
-        console.log(self.user);
     }
-    self.newGame =() => {
+
+    self.newGame = () => {
         $location.path('/titleScreen');
     }
     self.updateDrunkenness = (abv) => {
-        self.user.drunkenness = self.user.drunkenness + Math.round((Number(abv)/Number(self.user.tolerance)) +1);
+        self.user.drunkenness = self.user.drunkenness + Math.round((Number(abv) / Number(self.user.tolerance)) + 1);
     }
 
-    self.getUser= () => {
+    self.getUser = () => {
         return self.user;
     }
 
@@ -52,26 +52,89 @@ function TriviaService($http, $location) {
         }).then((result) => {
             self.trivia = result.data.results["0"];
             self.fix = () => {
-                replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é").replace(/&Uuml;/g, "\ö")
+                replace(/&quot;/g, "\"")
+                .replace(/&Delta;/g, "\∆")
+                .replace(/&amp;/g, "\&")
+                .replace(/&#039;/g, "\'")
+                .replace(/&eacute;/g, "\é")
+                .replace(/&rsquo;/g, "\'")
+                .replace(/&shy;/g, "\-")
+                .replace(/&Uuml;/g, "\Ü")
+                .replace(/&ouml;/g, "\ö")
+                .replace(/&ntilde;/g, "\ñ")
+                .replace(/&aacute;/g, "\á")
             }
             self.question = {
-                question: self.trivia.question.replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é").replace(/&Uuml;/g, "\ö").replace(/&rsquo;/g, "\'").replace(/&shy;/g, "\-"),
-                answers: [
-                    {
+                question: self.trivia.question
+                .replace(/&quot;/g, "\"")
+                .replace(/&Delta;/g, "\∆")
+                .replace(/&amp;/g, "\&")
+                .replace(/&#039;/g, "\'")
+                .replace(/&eacute;/g, "\é")
+                .replace(/&rsquo;/g, "\'")
+                .replace(/&shy;/g, "\-")
+                .replace(/&Uuml;/g, "\Ü")
+                .replace(/&ouml;/g, "\ö")
+                .replace(/&ntilde;/g, "\ñ")
+                .replace(/&aacute;/g, "\á"),
+                answers: [{
 
-                        answer: self.trivia.incorrect_answers[0].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é").replace(/&Uuml;/g, "\ö").replace(/&rsquo;/g, "\'").replace(/&shy;/g, "\-"), 
+                        answer: self.trivia.incorrect_answers[0] 
+                        .replace(/&quot;/g, "\"")
+                        .replace(/&Delta;/g, "\∆")
+                        .replace(/&amp;/g, "\&")
+                        .replace(/&#039;/g, "\'")
+                        .replace(/&eacute;/g, "\é")
+                        .replace(/&rsquo;/g, "\'")
+                        .replace(/&shy;/g, "\-")
+                        .replace(/&Uuml;/g, "\Ü")
+                        .replace(/&ouml;/g, "\ö")
+                        .replace(/&ntilde;/g, "\ñ")
+                        .replace(/&aacute;/g, "\á")
+                    },
+                    {
+                        answer: self.trivia.incorrect_answers[1]
+                        .replace(/&quot;/g, "\"")
+                        .replace(/&Delta;/g, "\∆")
+                        .replace(/&amp;/g, "\&")
+                        .replace(/&#039;/g, "\'")
+                        .replace(/&eacute;/g, "\é")
+                        .replace(/&rsquo;/g, "\'")
+                        .replace(/&shy;/g, "\-")
+                        .replace(/&Uuml;/g, "\Ü")
+                        .replace(/&ouml;/g, "\ö")
+                        .replace(/&ntilde;/g, "\ñ")
+                        .replace(/&aacute;/g, "\á"),
                         eval: false
                     },
                     {
-                        answer: self.trivia.incorrect_answers[1].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é").replace(/&Uuml;/g, "\ö").replace(/&rsquo;/g, "\'").replace(/&shy;/g, "\-"), 
+                        answer: self.trivia.incorrect_answers[2]
+                        .replace(/&quot;/g, "\"")
+                        .replace(/&Delta;/g, "\∆")
+                        .replace(/&amp;/g, "\&")
+                        .replace(/&#039;/g, "\'")
+                        .replace(/&eacute;/g, "\é")
+                        .replace(/&rsquo;/g, "\'")
+                        .replace(/&shy;/g, "\-")
+                        .replace(/&Uuml;/g, "\Ü")
+                        .replace(/&ouml;/g, "\ö")
+                        .replace(/&ntilde;/g, "\ñ")
+                        .replace(/&aacute;/g, "\á"),
                         eval: false
                     },
                     {
-                        answer: self.trivia.incorrect_answers[2].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é").replace(/&Uuml;/g, "\ö").replace(/&rsquo;/g, "\'").replace(/&shy;/g, "\-"),
-                        eval: false
-                    },
-                    {
-                        answer: self.trivia.correct_answer.replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é").replace(/&Uuml;/g, "\ö").replace(/&rsquo;/g, "\'").replace(/&shy;/g, "\-"),
+                        answer: self.trivia.correct_answer
+                        .replace(/&quot;/g, "\"")
+                        .replace(/&Delta;/g, "\∆")
+                        .replace(/&amp;/g, "\&")
+                        .replace(/&#039;/g, "\'")
+                        .replace(/&eacute;/g, "\é")
+                        .replace(/&rsquo;/g, "\'")
+                        .replace(/&shy;/g, "\-")
+                        .replace(/&Uuml;/g, "\Ü")
+                        .replace(/&ouml;/g, "\ö")
+                        .replace(/&ntilde;/g, "\ñ")
+                        .replace(/&aacute;/g, "\á"),
                         eval: true
                     }
                 ]
@@ -87,14 +150,47 @@ function TriviaService($http, $location) {
                 }
                 return self.question.answers;
             }
-            // self.cleanQuestion = self.question.question
             self.shuffleAnswers()
             return self.question
         })
     }
 
-    self.nextRound = () => {
-        
+    self.findKeyframesRule = (rule) => {
+        var ss = document.styleSheets;
+        console.log(ss);
+        for (let j = 0; j < ss[3].cssRules.length; j++) {
+            if (ss[3].cssRules[j].name == rule) {
+                return ss[3].cssRules[j];
+            }
+        }
+    }
+
+    self.removeAnimation = (round) => {
+        switch (round) {
+            case 3:
+                document.querySelectorAll(".question")[0].classList.remove('round2');
+                document.querySelectorAll(".answers")[0].classList.remove('round2');
+        }
+    }
+
+    self.addAnimation = (round, drunkenness) => {
+        switch (round) {
+            case 2:
+                document.querySelectorAll(".question")[0].classList.add('round2');
+                document.querySelectorAll(".answers")[0].classList.add('round2');
+                let textShadow = '';
+                for (let i = 1; i <= drunkenness; i++) {
+                    if (i % 2 === 0) {
+                        textShadow += `-${3 * i}px -${3*i}px ${i}px rgba(0, 0, 0, ${(1- (1/i))}),`;
+                    } else {
+                        textShadow += `${3*i}px ${3*i}px ${i}px rgba(0, 0, 0, ${(1-(1/i))}),`;
+                    }
+                }
+                textShadow = textShadow.substring(0, textShadow.length - 1);
+                let keyframes = self.findKeyframesRule("xvision");
+                keyframes.appendRule('0% {text-shadow: 0px 0px 0px rgba(0,0,0, 1);}');
+                keyframes.appendRule(`100% {text-shadow: ${textShadow};}`);
+        }
     }
 
 }

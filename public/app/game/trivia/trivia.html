@@ -23,8 +23,5 @@
     <p class="question">{{ $ctrl.currentQuestion.question }}</p>
     <section class="answers">
         <p ng-repeat="answer in $ctrl.currentQuestion.answers" ng-click="$ctrl.evaluate(answer.eval)">{{ answer.answer }}</p>
-        <!-- <p>{{ $ctrl.currentQuestion.answers[1].answer }}</p>
-        <p>{{ $ctrl.currentQuestion.answers[2].answer }}</p>
-        <p>{{ $ctrl.currentQuestion.answers[3].answer }}</p> -->
     </section>
 </section>
