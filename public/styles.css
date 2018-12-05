@@ -256,9 +256,19 @@ trivia {
     font-family: "Cinzel";
 }
 
+.correct-overlay img {  /* hidden for now to keep lauren's mobile styling head-ache free*/
+    display: hidden;
+}
+
+.correct-overlay p {
+    display: hidden;
+}
+
+
 .round2 {
     animation: xvision 2s cubic-bezier(0,.28,1,1.25) infinite alternate;
 }
+
 
 @keyframes xvision {
     
@@ -316,9 +326,22 @@ trivia {
     }
 
     .correct-overlay {
-        font-size: 6em;
+        font-size: 4em;
         text-align: center;
         flex-direction: column;
+    }
+
+    .correct-overlay p {
+        color: white;
+        /* text-shadow: 3px 3px #F7DBA7; */
+        -webkit-text-stroke-color: #C57B57;
+        -webkit-text-stroke-width: 1.5px;
+    }
+
+    .correct-overlay img {
+        margin-top: -30px;
+        margin-bottom: -30px;
+        height: 300px;
     }
 
     .correct-overlay button {
@@ -329,12 +352,6 @@ trivia {
         font-size: .6em;
         padding: 5px;
         font-family: "Cinzel";
-    }
-
-    .congrats-overlay-title {
-    text-shadow: 2px 2px #C57B57;
-    -webkit-text-stroke-color: #1E2D2F;
-    -webkit-text-stroke-width: 1px;
     }
 
     .winner-winner-chicken-dinner {
