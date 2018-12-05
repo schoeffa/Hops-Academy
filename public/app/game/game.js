@@ -23,13 +23,13 @@ const game = {
             vm.beers();
             vm.showCorrect = false;
             vm.showMobilePick = true;
+            TriviaService.addAnimation(vm.roundNum, vm.user.drunkenness);
+            TriviaService.removeAnimation(vm.roundNum);
         }
 
         vm.search = () => {
             TriviaService.getTrivia(vm.user.difficulty).then((result) => {
                 vm.currentQuestion = result;
-                console.log(vm.currentQuestion);
-
             })
         }
 
