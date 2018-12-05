@@ -1,10 +1,9 @@
 body {
     margin: 0;
     background-image: url(images/beer-labels.jpg);
-
     background: linear-gradient( rgba(225,229,231,.5), rgba(225,229,231,.5)), url(images/beer-labels.jpg);
-    background-size: cover;
-    background-repeat: none;
+    background-size: 100% 100%; /*cover*/
+    background-repeat: no-repeat;
     background-position: center;
 }
 
@@ -186,8 +185,8 @@ trivia {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 50px;
-    width: 100%;
+    margin-top: 10px;
+    /* width: 100%; */
 }
 
 .question {
@@ -301,6 +300,7 @@ trivia {
 
     .title-screen {
         width: 80%;
+        box-shadow: 0px 0px 10px 5px rgba(30, 45, 47, 0.8);
     }
 
     title-screen {
@@ -324,11 +324,13 @@ trivia {
         font-size: 8em;
         color: #F7DBA7;
         width: 89%;
-        height: 84.5%;
+        height: 80%;
         background-color: rgba(30,45,47,.99);
         position: absolute;
         z-index: 9999;
         color: white;
+        border-left: 5px solid #1E2D2F;
+        border-right: 6px solid #1E2D2F;
     }
 
     .wrongOverlay {
@@ -482,15 +484,18 @@ trivia {
     }
 
     .question-container {
-        background-image: url("../public/images/menu.png");
         position: absolute;
-        top: 200px;
+        top: 150px;
     }
 
+    .answers {
+        max-height: 350px;
+    }
     .answers p {
         font-size: 35px;
         max-width: 80%;
         min-width: 300px;
+        margin-top: 20px;
     }
 
     .question {
