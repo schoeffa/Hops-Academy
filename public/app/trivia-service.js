@@ -1,6 +1,6 @@
 "use strict";
 
-function TriviaService($http) {
+function TriviaService($http, $location) {
     const self = this;
     
     self.setUser = (intelligence, tolerance) => {
@@ -12,7 +12,9 @@ function TriviaService($http) {
         }
         console.log(self.user);
     }
-
+    self.newGame =() => {
+        $location.path('/titleScreen');
+    }
     self.updateDrunkenness = (abv) => {
         self.user.drunkenness = self.user.drunkenness + Math.round((Number(abv)/Number(self.user.tolerance)) +1);
     }

@@ -2,6 +2,10 @@
     <p>Congratulations! Have a beer!</p>
     <button ng-click="$ctrl.newRound()">Next Round</button>
 </section>
+<section ng-show="$ctrl.showWrong">
+    <p>Sorry that was wrong </p>
+    <button ng-click="$ctrl.newGame()" class="newGamebutton">Play again?</button>
+</section>
 
 <section class="question-container">
     <p class="question">{{ $ctrl.currentQuestion.question }}</p>
