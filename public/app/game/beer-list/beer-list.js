@@ -18,8 +18,10 @@ const beerList = {
 
             vm.showCorrect = false;
             vm.showPick = false
-            if (window.matchMedia("(max-width: 600px)")) {
+            console.log(window.matchMedia("(max-width: 600px)"));
+            if (window.matchMedia("(max-width: 600px)").matches) {
                 vm.showMobilePick = false;
+                console.log(vm.showMobilePick);
             }
         }
     }]
