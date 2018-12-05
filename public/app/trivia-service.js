@@ -52,25 +52,89 @@ function TriviaService($http, $location) {
         }).then((result) => {
             self.trivia = result.data.results["0"];
             self.fix = () => {
-                replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é").replace(/&Uuml;/g, "\ö")
+                replace(/&quot;/g, "\"")
+                .replace(/&Delta;/g, "\∆")
+                .replace(/&amp;/g, "\&")
+                .replace(/&#039;/g, "\'")
+                .replace(/&eacute;/g, "\é")
+                .replace(/&rsquo;/g, "\'")
+                .replace(/&shy;/g, "\-")
+                .replace(/&Uuml;/g, "\Ü")
+                .replace(/&ouml;/g, "\ö")
+                .replace(/&ntilde;/g, "\ñ")
+                .replace(/&aacute;/g, "\á")
             }
             self.question = {
-                question: self.trivia.question.replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é").replace(/&Uuml;/g, "\ö").replace(/&rsquo;/g, "\'").replace(/&shy;/g, "\-"),
+                question: self.trivia.question
+                .replace(/&quot;/g, "\"")
+                .replace(/&Delta;/g, "\∆")
+                .replace(/&amp;/g, "\&")
+                .replace(/&#039;/g, "\'")
+                .replace(/&eacute;/g, "\é")
+                .replace(/&rsquo;/g, "\'")
+                .replace(/&shy;/g, "\-")
+                .replace(/&Uuml;/g, "\Ü")
+                .replace(/&ouml;/g, "\ö")
+                .replace(/&ntilde;/g, "\ñ")
+                .replace(/&aacute;/g, "\á"),
                 answers: [{
 
-                        answer: self.trivia.incorrect_answers[0].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é").replace(/&Uuml;/g, "\ö").replace(/&rsquo;/g, "\'").replace(/&shy;/g, "\-"),
+                        answer: self.trivia.incorrect_answers[0] 
+                        .replace(/&quot;/g, "\"")
+                        .replace(/&Delta;/g, "\∆")
+                        .replace(/&amp;/g, "\&")
+                        .replace(/&#039;/g, "\'")
+                        .replace(/&eacute;/g, "\é")
+                        .replace(/&rsquo;/g, "\'")
+                        .replace(/&shy;/g, "\-")
+                        .replace(/&Uuml;/g, "\Ü")
+                        .replace(/&ouml;/g, "\ö")
+                        .replace(/&ntilde;/g, "\ñ")
+                        .replace(/&aacute;/g, "\á")
+                    },
+                    {
+                        answer: self.trivia.incorrect_answers[1]
+                        .replace(/&quot;/g, "\"")
+                        .replace(/&Delta;/g, "\∆")
+                        .replace(/&amp;/g, "\&")
+                        .replace(/&#039;/g, "\'")
+                        .replace(/&eacute;/g, "\é")
+                        .replace(/&rsquo;/g, "\'")
+                        .replace(/&shy;/g, "\-")
+                        .replace(/&Uuml;/g, "\Ü")
+                        .replace(/&ouml;/g, "\ö")
+                        .replace(/&ntilde;/g, "\ñ")
+                        .replace(/&aacute;/g, "\á"),
                         eval: false
                     },
                     {
-                        answer: self.trivia.incorrect_answers[1].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é").replace(/&Uuml;/g, "\ö").replace(/&rsquo;/g, "\'").replace(/&shy;/g, "\-"),
+                        answer: self.trivia.incorrect_answers[2]
+                        .replace(/&quot;/g, "\"")
+                        .replace(/&Delta;/g, "\∆")
+                        .replace(/&amp;/g, "\&")
+                        .replace(/&#039;/g, "\'")
+                        .replace(/&eacute;/g, "\é")
+                        .replace(/&rsquo;/g, "\'")
+                        .replace(/&shy;/g, "\-")
+                        .replace(/&Uuml;/g, "\Ü")
+                        .replace(/&ouml;/g, "\ö")
+                        .replace(/&ntilde;/g, "\ñ")
+                        .replace(/&aacute;/g, "\á"),
                         eval: false
                     },
                     {
-                        answer: self.trivia.incorrect_answers[2].replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é").replace(/&Uuml;/g, "\ö").replace(/&rsquo;/g, "\'").replace(/&shy;/g, "\-"),
-                        eval: false
-                    },
-                    {
-                        answer: self.trivia.correct_answer.replace(/&quot;/g, "\"").replace(/&Delta;/g, "\∆").replace(/&amp;/g, "\&").replace(/&#039;/g, "\'").replace(/&eacute;/g, "\é").replace(/&Uuml;/g, "\ö").replace(/&rsquo;/g, "\'").replace(/&shy;/g, "\-"),
+                        answer: self.trivia.correct_answer
+                        .replace(/&quot;/g, "\"")
+                        .replace(/&Delta;/g, "\∆")
+                        .replace(/&amp;/g, "\&")
+                        .replace(/&#039;/g, "\'")
+                        .replace(/&eacute;/g, "\é")
+                        .replace(/&rsquo;/g, "\'")
+                        .replace(/&shy;/g, "\-")
+                        .replace(/&Uuml;/g, "\Ü")
+                        .replace(/&ouml;/g, "\ö")
+                        .replace(/&ntilde;/g, "\ñ")
+                        .replace(/&aacute;/g, "\á"),
                         eval: true
                     }
                 ]
