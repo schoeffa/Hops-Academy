@@ -200,6 +200,25 @@ trivia {
     min-width: 100px;
     cursor: pointer;
 }
+
+.winner-winner-chicken-dinner {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Cinzel';
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: #F7DBA7;
+    width: 100%;
+    height: 84.5%;
+    background-color: rgba(30,45,47,.99);
+    position: absolute;
+    z-index: 9999;
+    color: white;
+}
+
 .wrongOverlay{
     position: absolute;
     display: flex;
@@ -221,7 +240,6 @@ trivia {
     font-size: .6em;
     padding: 5px;
     font-family: "Cinzel";
-
 }
 
 
@@ -277,20 +295,8 @@ trivia {
     }
 
     .winner-winner-chicken-dinner {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        font-family: 'Cinzel';
-        align-items: center;
-        justify-content: center;
         font-size: 4em;
-        color: #F7DBA7;
         width: 89%;
-        height: 84.5%;
-        background-color: rgba(30,45,47,.99);
-        position: absolute;
-        z-index: 9999;
-        color: white;
     }
 
 }
