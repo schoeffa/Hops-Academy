@@ -3,22 +3,24 @@ const game = {
     template: `<section class="game-wrapper">
     <stats user="$ctrl.user" round-num="$ctrl.roundNum"></stats>
     <section class="right-pane">
-    <beer-list current-beers="$ctrl.currentBeers"></beer-list>
-    <trivia evaluate="$ctrl.evaluate()" show-correct="$ctrl.showCorrect" show-wrong="$ctrl.showWrong" new-round="$ctrl.newRound()" current-question="$ctrl.currentQuestion"></trivia>
+    <beer-list show-pick="$ctrl.showPick" current-beers="$ctrl.currentBeers"></beer-list>
+    <trivia round-num="$ctrl.roundNum" show-pick="$ctrl.showPick" evaluate="$ctrl.evaluate()" show-correct="$ctrl.showCorrect" show-wrong="$ctrl.showWrong" new-round="$ctrl.newRound()" current-question="$ctrl.currentQuestion"></trivia>
     </section>
     </section>`,
     controller: ["TriviaService", function (TriviaService) {
         const vm = this;
         vm.user = TriviaService.getUser();
-        vm.roundNum = 0;
+        vm.roundNum = 1;
         vm.showCorrect = false;
         vm.showWrong = false;
+        vm.showPick = true;
 
         vm.newRound = () => {
             vm.roundNum++;
             vm.search();
             vm.beers();
             vm.showCorrect = false;
+            vm.showPick = true;
         }
 
         vm.search = () => {

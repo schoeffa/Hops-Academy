@@ -1,7 +1,7 @@
 "use strict";
 const beerList = {
     templateUrl: "app/game/beer-list/beer-list.html",
-    bindings: {currentBeers: "<"},
+    bindings: {currentBeers: "<", showPick: "="},
     controller: ["TriviaService", function(TriviaService) {
         const vm= this;
 
@@ -14,6 +14,7 @@ const beerList = {
                     break;
                 }
             }
+            vm.showPick = false
         }
     }]
 }

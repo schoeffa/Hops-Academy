@@ -7,6 +7,16 @@
     <button ng-click="$ctrl.newGame()" class="newGamebutton">Play again?</button>
 </section>
 
+<section class="winner-winner-chicken-dinner" ng-show="$ctrl.showWin">
+    <p>Congratulations, you win!</p>
+    <button ng-click="$ctrl.goHome();">Another Round</button>
+    <button>Get a ride home</button>
+</section>
+
+<section ng-show="$ctrl.showPick" class="beer-overlay">
+    <p>Have a beer!</p>
+</section>
+
 <section class="question-container">
     <p class="question">{{ $ctrl.currentQuestion.question }}</p>
     <section class="answers">
