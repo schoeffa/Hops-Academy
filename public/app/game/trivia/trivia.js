@@ -11,9 +11,9 @@ const trivia = {
         vm.evaluate = (truthiness) => {
             if(truthiness && vm.roundNum === 5) {
                 vm.showWin = true
-                console.log("YOU WON")
             } else if(truthiness) {
                 vm.showCorrect = true;
+                vm.newRound();
             } else {
                 vm.showWrong = true;
             }

@@ -290,7 +290,7 @@ trivia {
         font-size: 30px;
     }
 
-    .beer-overlay, .wrongOverlay {
+    .beer-overlay, .wrongOverlay, .correct-overlay {
         display: flex;
         font-family: 'Cinzel';
         align-items: center;
@@ -304,8 +304,31 @@ trivia {
         z-index: 9999;
         color: white;
     }
+
     .wrongOverlay {
         font-size: 3em;
+    }
+
+    .correct-overlay {
+        font-size: 6em;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .correct-overlay button {
+        display: none;
+        background-color: #1E2D2F;
+        border: 3px solid #F7DBA7;
+        color: #F7DBA7;
+        font-size: .6em;
+        padding: 5px;
+        font-family: "Cinzel";
+    }
+
+    .congrats-overlay-title {
+    text-shadow: 2px 2px #C57B57;
+    -webkit-text-stroke-color: #1E2D2F;
+    -webkit-text-stroke-width: 1px;
     }
 
     .winner-winner-chicken-dinner {

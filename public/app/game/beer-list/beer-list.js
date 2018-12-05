@@ -1,7 +1,8 @@
 "use strict";
 const beerList = {
     templateUrl: "app/game/beer-list/beer-list.html",
-    bindings: { currentBeers: "<", showPick: "=" , showMobilePick: "="},
+
+    bindings: { currentBeers: "<", showPick: "=" , showCorrect: "=", showMobilePick: "="},
     controller: ["TriviaService", function (TriviaService) {
         const vm = this;
 
@@ -14,6 +15,8 @@ const beerList = {
                     break;
                 }
             }
+
+            vm.showCorrect = false;
             vm.showPick = false
             if (window.matchMedia("(max-width: 600px)")) {
                 vm.showMobilePick = false;
