@@ -162,6 +162,12 @@ h4 {
     max-height: 200px;
 }
 
+.char_one p, .char_two p, .char_tres p {
+    padding-right: 5px;
+    padding-left: 5px;
+    margin: 5px;
+}
+
 .char_one, .char_two, .char_tres {
     display: flex;
     flex-direction: column;
@@ -308,7 +314,6 @@ a {
     padding: 5px;
 }
 
-
 .char_one:hover p, .char_two:hover p, .char_tres:hover p {
     padding: 5px;
     background-color: #F7DBA7;
@@ -343,6 +348,10 @@ a {
 
     .pick-a-beer {
         display: none;
+    }
+
+    .char_one p, .char_two p, .char_tres p {
+        width: 200px;
     }
 
     .characters {

@@ -148,7 +148,7 @@ function TriviaService($http, $location) {
             case 3:
                 let distract = self.findKeyframesRule("distract");
                 document.getElementById("distraction-pic").style.display = "inline-block";
-                document.getElementById("distraction-pic").style.animation = `distract 5s linear infinite alternate`;
+                document.getElementById("distraction-pic").style.animation = `distract 5s linear 1s infinite alternate`;
                 distract.appendRule(`${100-(3 * drunkenness)}% {opacity: 1`);
                 distract.appendRule(`100% {opacity: 1`);
                 break;
