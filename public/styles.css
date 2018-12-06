@@ -334,6 +334,7 @@ a {
 
     beer-list {
         position: relative;
+        min-height: 155px;
     }
 
     #distraction-pic {
@@ -442,16 +443,28 @@ a {
     }
 
     .correct-overlay p {
-        color: white;
-        /* text-shadow: 3px 3px #F7DBA7; */
-        -webkit-text-stroke-color: #C57B57;
-        -webkit-text-stroke-width: 1.5px;
+        color: #F7DBA7;
+        
+    }
+
+    .correct-overlay-images {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 90%;
+    }
+
+    #correct-arrows {
+        font-size: 175px;
+        position: relative;
+        margin-bottom: 33%;
     }
 
     .correct-overlay img {
-        margin-top: -30px;
-        margin-bottom: -30px;
-        height: 300px;
+        margin-top: -14%;
+        margin-bottom: -14%;
+        height: 18%;
+        width: 45%;
     }
 
     .correct-overlay button {
@@ -616,6 +629,12 @@ a {
     .question {
         font-size: 42px;
         width: 80%;
+    }
+
+/* ------- Start Correct Screen ------ */
+
+    #correct-arrows {
+        font-size: 225px;
     }
 
 }
