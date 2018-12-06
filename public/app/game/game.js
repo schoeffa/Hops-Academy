@@ -11,7 +11,7 @@ const game = {
     controller: ["TriviaService", function (TriviaService) {
         const vm = this;
         vm.user = TriviaService.getUser();
-        vm.roundNum = 1;
+        vm.roundNum = 5;
         vm.showCorrect = false;
         vm.showWrong = false;
         vm.showPick = true;
