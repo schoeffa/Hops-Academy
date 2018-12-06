@@ -3,12 +3,11 @@
 function TriviaService($http, $location) {
     const self = this;
 
-    self.setUser = (intelligence, tolerance) => {
+    self.setUser = (difficulty, tolerance) => {
         self.user = {
-            intelligence: intelligence,
+            difficulty: difficulty,
             tolerance: tolerance,
-            drunkenness: 0,
-            difficulty: "easy"
+            drunkenness: 0
         }
     }
 

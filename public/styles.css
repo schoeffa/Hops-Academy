@@ -162,12 +162,10 @@ h4 {
     max-height: 200px;
 }
 
-.char_one {
-    width: 40%;
-    cursor: pointer;
-}
-
-.char_two {
+.char_one, .char_two, .char_tres {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 40%;
     cursor: pointer;
 }
@@ -296,16 +294,25 @@ a {
 .correct-overlay {
     display: none;
 }   
-/* .correct-overlay img {
-    hidden for now to keep lauren's mobile styling head-ache free
-    display: hidden;
+
+.stat_one, .stat_two, .stat_tres{
+    max-width: 200px;
+    margin-top: 10px;
 }
 
-.correct-overlay p {
-    display: hidden;
-} */
+.char_one:hover img, .char_two:hover img, .char_tres:hover img, .answers p:hover, .logo:hover {
+    box-shadow: 0px 0px 5px 5px #F7DBA7;
+}
+
+.char_one:hover img, .char_two:hover img, .char_tres:hover img {
+    padding: 5px;
+}
 
 
+.char_one:hover p, .char_two:hover p, .char_tres:hover p {
+    padding: 5px;
+    background-color: #F7DBA7;
+}
 .round2 {
     animation: xvision 2s cubic-bezier(0, .28, 1, 1.25) infinite alternate;
 }
@@ -330,7 +337,7 @@ a {
     }
 
     #distraction-pic {
-        width: 89.5%;
+        width: 87.5%;
     }
 
     .pick-a-beer {
@@ -394,7 +401,7 @@ a {
         justify-content: center;
         font-size: 8em;
         color: #F7DBA7;
-        width: 89%;
+        width: 87%;
         height: 80%;
         background-color: rgba(30, 45, 47, .99);
         position: absolute;
@@ -498,13 +505,13 @@ a {
     .right-pane {
         box-sizing: border-box;
         display: flex;
-        width: 90%;
+        width: 88%;
         height: 100%;
         flex-direction: column;
     }
 
     stats {
-        width: 10%;
+        width: 12%;
     }
 
     .avatar {
@@ -593,11 +600,6 @@ a {
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
-
-    .question-container {
-        /* position: absolute;
-        top: 150px; */
     }
 
     .answers {
