@@ -582,6 +582,7 @@ a {
     .logo {
         max-height: 150px;
         max-width: 200px;
+        margin: 0;
     }
 
     .extend-info {
