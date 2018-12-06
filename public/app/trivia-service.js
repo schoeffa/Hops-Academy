@@ -44,15 +44,17 @@ function TriviaService($http, $location) {
             return [self.beerList[0], self.beerList[1], self.beerList[2]];
         });
     }
+    self.categoryList = [12, 14, 16, 21, 23, 25, 27]
+    self.category = self.categoryList[Math.floor(Math.random() * self.categoryList.length)]
     // First question//
     self.getTrivia = (difficulty) => {
         return $http({
             method: "GET",
-            url: `https://opentdb.com/api.php?amount=1&difficulty=${difficulty}&type=multiple`
+            url: `https://opentdb.com/api.php?amount=1&category=${self.category}&difficulty=${difficulty}&type=multiple`
         }).then((result) => {
             self.trivia = result.data.results["0"];
-            self.fix = () => {
-                replace(/&quot;/g, "\"")
+            self.fix = (string) => {
+                return string.replace(/&quot;/g, "\"")
                     .replace(/&Delta;/g, "\∆")
                     .replace(/&amp;/g, "\&")
                     .replace(/&#039;/g, "\'")
@@ -62,79 +64,25 @@ function TriviaService($http, $location) {
                     .replace(/&Uuml;/g, "\Ü")
                     .replace(/&ouml;/g, "\ö")
                     .replace(/&ntilde;/g, "\ñ")
-                    .replace(/&aacute;/g, "\á")
+                    .replace(/&aacute;/g, "\á");
             }
             self.question = {
-                question: self.trivia.question
-                    .replace(/&quot;/g, "\"")
-                    .replace(/&Delta;/g, "\∆")
-                    .replace(/&amp;/g, "\&")
-                    .replace(/&#039;/g, "\'")
-                    .replace(/&eacute;/g, "\é")
-                    .replace(/&rsquo;/g, "\'")
-                    .replace(/&shy;/g, "\-")
-                    .replace(/&Uuml;/g, "\Ü")
-                    .replace(/&ouml;/g, "\ö")
-                    .replace(/&ntilde;/g, "\ñ")
-                    .replace(/&aacute;/g, "\á"),
+                question: self.fix(self.trivia.question),
                 answers: [{
 
-                        answer: self.trivia.incorrect_answers[0]
-                            .replace(/&quot;/g, "\"")
-                            .replace(/&Delta;/g, "\∆")
-                            .replace(/&amp;/g, "\&")
-                            .replace(/&#039;/g, "\'")
-                            .replace(/&eacute;/g, "\é")
-                            .replace(/&rsquo;/g, "\'")
-                            .replace(/&shy;/g, "\-")
-                            .replace(/&Uuml;/g, "\Ü")
-                            .replace(/&ouml;/g, "\ö")
-                            .replace(/&ntilde;/g, "\ñ")
-                            .replace(/&aacute;/g, "\á")
-                    },
-                    {
-                        answer: self.trivia.incorrect_answers[1]
-                            .replace(/&quot;/g, "\"")
-                            .replace(/&Delta;/g, "\∆")
-                            .replace(/&amp;/g, "\&")
-                            .replace(/&#039;/g, "\'")
-                            .replace(/&eacute;/g, "\é")
-                            .replace(/&rsquo;/g, "\'")
-                            .replace(/&shy;/g, "\-")
-                            .replace(/&Uuml;/g, "\Ü")
-                            .replace(/&ouml;/g, "\ö")
-                            .replace(/&ntilde;/g, "\ñ")
-                            .replace(/&aacute;/g, "\á"),
+                        answer: self.fix(self.trivia.incorrect_answers[0]),
                         eval: false
                     },
                     {
-                        answer: self.trivia.incorrect_answers[2]
-                            .replace(/&quot;/g, "\"")
-                            .replace(/&Delta;/g, "\∆")
-                            .replace(/&amp;/g, "\&")
-                            .replace(/&#039;/g, "\'")
-                            .replace(/&eacute;/g, "\é")
-                            .replace(/&rsquo;/g, "\'")
-                            .replace(/&shy;/g, "\-")
-                            .replace(/&Uuml;/g, "\Ü")
-                            .replace(/&ouml;/g, "\ö")
-                            .replace(/&ntilde;/g, "\ñ")
-                            .replace(/&aacute;/g, "\á"),
+                        answer: self.fix(self.trivia.incorrect_answers[1]),
                         eval: false
                     },
                     {
-                        answer: self.trivia.correct_answer
-                            .replace(/&quot;/g, "\"")
-                            .replace(/&Delta;/g, "\∆")
-                            .replace(/&amp;/g, "\&")
-                            .replace(/&#039;/g, "\'")
-                            .replace(/&eacute;/g, "\é")
-                            .replace(/&rsquo;/g, "\'")
-                            .replace(/&shy;/g, "\-")
-                            .replace(/&Uuml;/g, "\Ü")
-                            .replace(/&ouml;/g, "\ö")
-                            .replace(/&ntilde;/g, "\ñ")
-                            .replace(/&aacute;/g, "\á"),
+                        answer: self.fix(self.trivia.incorrect_answers[2]),
+                        eval: false
+                    },
+                    {
+                        answer: self.fix(self.trivia.correct_answer),
                         eval: true
                     }
                 ]
@@ -150,7 +98,7 @@ function TriviaService($http, $location) {
                 }
                 return self.question.answers;
             }
-            self.shuffleAnswers()
+            self.shuffleAnswers();
             return self.question
         })
     }
