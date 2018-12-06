@@ -21,9 +21,10 @@ body {
 beer-list {
     flex-direction: column;
     display: flex;
-    position: relative;
+    position: fixed;
     background-color: rgba(255, 255, 255, 0.9);
     z-index: 999999;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     height: 100vh;
@@ -292,14 +293,17 @@ a {
     cursor: pointer;
 }
 
-.correct-overlay img {
-    /* hidden for now to keep lauren's mobile styling head-ache free*/
+.correct-overlay {
+    display: none;
+}   
+/* .correct-overlay img {
+    hidden for now to keep lauren's mobile styling head-ache free
     display: hidden;
 }
 
 .correct-overlay p {
     display: hidden;
-}
+} */
 
 
 .round2 {
@@ -320,6 +324,10 @@ a {
 @keyframes xvision {}
 
 @media only screen and (min-width: 600px) {
+
+    beer-list {
+        position: relative;
+    }
 
     #distraction-pic {
         width: 89.5%;
