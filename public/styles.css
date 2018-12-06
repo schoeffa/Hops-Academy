@@ -2,13 +2,18 @@ body {
     margin: 0;
     background-image: url(images/beer-labels.jpg);
     background: linear-gradient(rgba(225, 229, 231, .5), rgba(225, 229, 231, .5)), url(images/beer-labels.jpg);
-    background-size: 100% 100%;
-    /*cover*/
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    height: 100vh;
 }
 
 /* beer component */
+.pick-a-beer {
+    font-family: 'Cinzen';
+    font-size: 2em;
+}
+
 .beer-overlay {
     display: none;
 }
@@ -178,15 +183,15 @@ h4 {
     display: none;
     opacity: 0;
     position: fixed;
-    width: 89.5%;
+    width: 100%;
     height: 100%;
 }
 
 @keyframes distract {
     0% {opacity: 0;}
     10% {opacity: 0;}
-    19% {z-index: -10;}
-    20% {opacity: 0; z-index: 10;}
+    25% {z-index: -10;}
+    30% {opacity: .5; z-index: 10;}
 }
 
 trivia {
@@ -310,6 +315,14 @@ a {
 @keyframes xvision {}
 
 @media only screen and (min-width: 600px) {
+
+    #distraction-pic {
+        width: 89.5%;
+    }
+
+    .pick-a-beer {
+        display: none;
+    }
 
     .characters {
         width: 80%;
@@ -552,6 +565,7 @@ a {
     .beer-info {
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 
     .question-container {
