@@ -44,10 +44,11 @@ function TriviaService($http, $location) {
             return [self.beerList[0], self.beerList[1], self.beerList[2]];
         });
     }
-    self.categoryList = [12, 14, 16, 21, 23, 25, 27]
-    self.category = self.categoryList[Math.floor(Math.random() * self.categoryList.length)]
+    console.log(self.category);
     // First question//
     self.getTrivia = (difficulty) => {
+        self.categoryList = [12, 14, 16, 21, 23, 25, 27];
+        self.category = self.categoryList[Math.floor(Math.random() * self.categoryList.length)];
         return $http({
             method: "GET",
             url: `https://opentdb.com/api.php?amount=1&category=${self.category}&difficulty=${difficulty}&type=multiple`
@@ -105,7 +106,6 @@ function TriviaService($http, $location) {
 
     self.findKeyframesRule = (rule) => {
         var ss = document.styleSheets;
-        console.log(ss);
         for (let j = 0; j < ss[3].cssRules.length; j++) {
             if (ss[3].cssRules[j].name == rule) {
                 return ss[3].cssRules[j];
