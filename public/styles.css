@@ -321,9 +321,12 @@ a {
     h4 {
         font-size: 30px;
     }
-
+    .beer-overlay p{
+        margin-top: 45px;
+    }
     .beer-overlay, .wrongOverlay, .correct-overlay {
         display: flex;
+        flex-direction: column;
         font-family: 'Cinzel';
         align-items: center;
         justify-content: center;
@@ -338,7 +341,19 @@ a {
         border-left: 5px solid #1E2D2F;
         border-right: 6px solid #1E2D2F;
     }
-
+    .fas {
+       color: white;
+       height: 60px;
+       margin: 10px;
+       text-shadow: 2px 10px #F7DBA7;
+       animation-name: flashyborder;
+       animation-duration: 750ms;
+       animation-iteration-count: infinite;
+    }
+    @keyframes flashyborder {
+        from {text-shadow: 2px 10px #F7DBA7}
+        to {text-shadow: 4px 20px #C57B57}
+    }
     .wrongOverlay {
         font-size: 3em;
     }
@@ -440,7 +455,7 @@ a {
     }
 
     .beer-name {
-        width: 200px;
+        width: 150px;
         margin-left: 5px;
     }
 
