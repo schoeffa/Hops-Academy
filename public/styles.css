@@ -183,6 +183,7 @@ trivia {
     font-family: 'Kreon', serif;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     text-align: center;
     margin-top: 10px;
@@ -232,6 +233,11 @@ trivia {
     padding: 5px;
     font-family: "Cinzel";
     margin-bottom: 20px;
+}
+
+a {
+    color: #F7DBA7;
+    text-decoration: none;
 }
 
 .wrongOverlay{
@@ -372,6 +378,23 @@ trivia {
         height: 84.5%;
     }
 
+    .question-container {
+        height: 80vh;
+    }
+
+    .answers {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin-top: 50px;
+    }
+
+    .answers p {
+        font-size: 35px;
+        width: 32%;
+        margin-top: 20px;
+    }
+
 }
 
 @media only screen and (min-width: 1200px) {
@@ -484,8 +507,8 @@ trivia {
     }
 
     .question-container {
-        position: absolute;
-        top: 150px;
+        /* position: absolute;
+        top: 150px; */
     }
 
     .answers {
