@@ -40,6 +40,7 @@ beer-list {
     align-items: center;
     text-align: center;
     margin-bottom: 5px;
+    cursor: pointer;
 }
 
 .beer-choices p {
@@ -162,10 +163,12 @@ h4 {
 
 .char_one {
     width: 40%;
+    cursor: pointer;
 }
 
 .char_two {
     width: 40%;
+    cursor: pointer;
 }
 
 .title-screen {
@@ -256,6 +259,7 @@ trivia {
     padding: 5px;
     font-family: "Cinzel";
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 a {
@@ -285,6 +289,7 @@ a {
     font-size: .6em;
     padding: 5px;
     font-family: "Cinzel";
+    cursor: pointer;
 }
 
 .correct-overlay img {
@@ -442,6 +447,7 @@ a {
         font-size: .6em;
         padding: 5px;
         font-family: "Cinzel";
+        cursor: pointer;
     }
 
     .winner-winner-chicken-dinner {
