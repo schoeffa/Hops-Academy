@@ -4,6 +4,7 @@
     <p>Have a beer!</p>
     <button ng-click="$ctrl.newRound();">Next Round</button>
 </section>
+
 <section ng-show="$ctrl.showWrong" class="wrongOverlay">
     <p>Sorry that was wrong </p>
     <button ng-click="$ctrl.newGame()" class="newGamebutton">Play again?</button>
@@ -20,6 +21,8 @@
         <i class="fas fa-angle-up"></i>
     <p>Have a beer!</p>
 </section>
+
+<img src="../../../images/abstract-barbecue-barbeque-bbq-161519.jpeg" id="distraction-pic">
 
 <section class="question-container">
     <p class="question">{{ $ctrl.currentQuestion.question }}</p>
