@@ -1,6 +1,10 @@
 <section class="correct-overlay" ng-show="$ctrl.showCorrect">
     <p>Correct!</p>
-    <img src="../../../images/cheers-col.png"/> 
+    <section class="correct-overlay-images">
+        <i id="correct-arrows" class="fas fa-angle-up"></i>
+        <img src="../../../images/cheers-col.png"/>
+        <i id="correct-arrows" class="fas fa-angle-up"></i>
+    </section>
     <p>Have a beer!</p>
     <button ng-click="$ctrl.newRound();">Next Round</button>
 </section>
@@ -13,12 +17,13 @@
 <section class="winner-winner-chicken-dinner" ng-show="$ctrl.showWin">
     <p>Congratulations, you win!</p>
     <button ng-click="$ctrl.goHome();">Another Round</button>
-    <button><a href="https://auth.uber.com/login/?breeze_local_zone=sjc1&next_url=https%3A%2F%2Friders.uber.com%2F&state=C3i8meZ2AXbO9Iqrl573IJqmbkpL_j2Tiqb9GLoi0LM%3D" target="_blank">Get a ride home</a></button>
+    <button><a href="https://auth.uber.com/login/?breeze_local_zone=sjc1&next_url=https%3A%2F%2Friders.uber.com%2F&state=C3i8meZ2AXbO9Iqrl573IJqmbkpL_j2Tiqb9GLoi0LM%3D"
+            target="_blank">Get a ride home</a></button>
 </section>
 
 <section ng-show="$ctrl.showPick" class="beer-overlay">
-        <i class="fas fa-angle-up"></i>
-        <i class="fas fa-angle-up"></i>
+    <i class="fas fa-angle-up"></i>
+    <i class="fas fa-angle-up"></i>
     <p>Have a beer!</p>
 </section>
 
@@ -27,6 +32,7 @@
 <section class="question-container">
     <p class="question">{{ $ctrl.currentQuestion.question }}</p>
     <section class="answers">
-        <p ng-repeat="answer in $ctrl.currentQuestion.answers" ng-click="$ctrl.evaluate(answer.eval)">{{ answer.answer }}</p>
+        <p ng-repeat="answer in $ctrl.currentQuestion.answers" ng-click="$ctrl.evaluate(answer.eval)">{{ answer.answer
+            }}</p>
     </section>
 </section>
