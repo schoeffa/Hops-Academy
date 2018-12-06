@@ -44,10 +44,10 @@ function TriviaService($http, $location) {
             return [self.beerList[0], self.beerList[1], self.beerList[2]];
         });
     }
-    self.categoryList = [12, 14, 16, 21, 23, 25, 27]
-    self.category = self.categoryList[Math.floor(Math.random() * self.categoryList.length)]
     // First question//
     self.getTrivia = (difficulty) => {
+        self.categoryList = [12, 14, 16, 21, 23, 25, 27];
+        self.category = self.categoryList[Math.floor(Math.random() * self.categoryList.length)];
         return $http({
             method: "GET",
             url: `https://opentdb.com/api.php?amount=1&category=${self.category}&difficulty=${difficulty}&type=multiple`
@@ -105,10 +105,9 @@ function TriviaService($http, $location) {
 
     self.findKeyframesRule = (rule) => {
         var ss = document.styleSheets;
-        console.log(ss);
-        for (let j = 0; j < ss[3].cssRules.length; j++) {
-            if (ss[3].cssRules[j].name == rule) {
-                return ss[3].cssRules[j];
+        for (let j = 0; j < ss[4].cssRules.length; j++) {
+            if (ss[4].cssRules[j].name == rule) {
+                return ss[4].cssRules[j];
             }
         }
     }
@@ -118,9 +117,14 @@ function TriviaService($http, $location) {
             case 3:
                 document.querySelectorAll(".question")[0].classList.remove('round2');
                 document.querySelectorAll(".answers")[0].classList.remove('round2');
+                break;
+            case 4:
+                document.getElementById("distraction-pic").style.display = "none";
+                break;
             case 5:
                 document.querySelectorAll(".question")[0].classList.remove('round4');
                 document.querySelectorAll(".answers")[0].classList.remove('round4');
+                break;
         }
     }
 
@@ -141,6 +145,13 @@ function TriviaService($http, $location) {
                 let xvision = self.findKeyframesRule("xvision");
                 xvision.appendRule('0% {text-shadow: 0px 0px 0px rgba(0,0,0, 1);}');
                 xvision.appendRule(`100% {text-shadow: ${textShadow};}`);
+                break;
+            case 3:
+                let distract = self.findKeyframesRule("distract");
+                document.getElementById("distraction-pic").style.display = "inline-block";
+                document.getElementById("distraction-pic").style.animation = `distract 5s linear infinite alternate`;
+                distract.appendRule(`${100-(3 * drunkenness)}% {opacity: 1`);
+                distract.appendRule(`100% {opacity: 1`);
                 break;
             case 4:
                 document.querySelectorAll(".question")[0].classList.add('round4');

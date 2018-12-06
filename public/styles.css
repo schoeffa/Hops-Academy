@@ -1,16 +1,18 @@
 body {
     margin: 0;
     background-image: url(images/beer-labels.jpg);
-    background: linear-gradient( rgba(225,229,231,.5), rgba(225,229,231,.5)), url(images/beer-labels.jpg);
-    background-size: 100% 100%; /*cover*/
+    background: linear-gradient(rgba(225, 229, 231, .5), rgba(225, 229, 231, .5)), url(images/beer-labels.jpg);
+    background-size: 100% 100%;
+    /*cover*/
     background-repeat: no-repeat;
     background-position: center;
 }
 
 /* beer component */
 .beer-overlay {
-    display:none;
+    display: none;
 }
+
 beer-list {
     flex-direction: column;
     display: flex;
@@ -167,10 +169,25 @@ h4 {
     height: 85%;
     display: flex;
     flex-direction: column;
-    justify-content: center;  
+    justify-content: center;
 }
 
 /* trivia component */
+
+#distraction-pic {
+    display: none;
+    opacity: 0;
+    position: fixed;
+    width: 89.5%;
+    height: 100%;
+}
+
+@keyframes distract {
+    0% {opacity: 0;}
+    10% {opacity: 0;}
+    19% {z-index: -10;}
+    20% {opacity: 0; z-index: 10;}
+}
 
 trivia {
     display: flex;
@@ -186,7 +203,7 @@ trivia {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     /* width: 100%; */
 }
 
@@ -220,11 +237,12 @@ trivia {
     color: #F7DBA7;
     width: 100%;
     height: 100%;
-    background-color: rgba(30,45,47,.99);
+    background-color: rgba(30, 45, 47, .99);
     position: absolute;
     z-index: 9999;
     color: white;
 }
+
 .winner-winner-chicken-dinner button {
     background-color: #1E2D2F;
     border: 3px solid #F7DBA7;
@@ -240,7 +258,7 @@ a {
     text-decoration: none;
 }
 
-.wrongOverlay{
+.wrongOverlay {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -252,8 +270,9 @@ a {
     z-index: 9999;
     background-color: rgba(30, 45, 47, .99);
     text-align: center;
-    font-family: "Cinzel"; 
+    font-family: "Cinzel";
 }
+
 .wrongOverlay button {
     background-color: #1E2D2F;
     border: 3px solid #F7DBA7;
@@ -263,7 +282,8 @@ a {
     font-family: "Cinzel";
 }
 
-.correct-overlay img {  /* hidden for now to keep lauren's mobile styling head-ache free*/
+.correct-overlay img {
+    /* hidden for now to keep lauren's mobile styling head-ache free*/
     display: hidden;
 }
 
@@ -273,7 +293,7 @@ a {
 
 
 .round2 {
-    animation: xvision 2s cubic-bezier(0,.28,1,1.25) infinite alternate;
+    animation: xvision 2s cubic-bezier(0, .28, 1, 1.25) infinite alternate;
 }
 
 
@@ -282,12 +302,12 @@ a {
 }
 
 @keyframes focus {
-    0% {filter: blur(1px);}
+    0% {
+        filter: blur(1px);
+    }
 }
 
-@keyframes xvision {
-    
-}
+@keyframes xvision {}
 
 @media only screen and (min-width: 600px) {
 
@@ -321,10 +341,14 @@ a {
     h4 {
         font-size: 30px;
     }
-    .beer-overlay p{
+
+    .beer-overlay p {
         margin-top: 45px;
     }
-    .beer-overlay, .wrongOverlay, .correct-overlay {
+
+    .beer-overlay,
+    .wrongOverlay,
+    .correct-overlay {
         display: flex;
         flex-direction: column;
         font-family: 'Cinzel';
@@ -334,26 +358,34 @@ a {
         color: #F7DBA7;
         width: 89%;
         height: 80%;
-        background-color: rgba(30,45,47,.99);
+        background-color: rgba(30, 45, 47, .99);
         position: absolute;
         z-index: 9999;
         color: white;
         border-left: 5px solid #1E2D2F;
         border-right: 6px solid #1E2D2F;
     }
+
     .fas {
-       color: white;
-       height: 60px;
-       margin: 10px;
-       text-shadow: 2px 10px #F7DBA7;
-       animation-name: flashyborder;
-       animation-duration: 750ms;
-       animation-iteration-count: infinite;
+        color: white;
+        height: 60px;
+        margin: 10px;
+        text-shadow: 2px 10px #F7DBA7;
+        animation-name: flashyborder;
+        animation-duration: 750ms;
+        animation-iteration-count: infinite;
     }
+
     @keyframes flashyborder {
-        from {text-shadow: 2px 10px #F7DBA7}
-        to {text-shadow: 4px 20px #C57B57}
+        from {
+            text-shadow: 2px 10px #F7DBA7
+        }
+
+        to {
+            text-shadow: 4px 20px #C57B57
+        }
     }
+
     .wrongOverlay {
         font-size: 3em;
     }
@@ -394,6 +426,7 @@ a {
     }
 
     .question-container {
+        margin-top: 0;
         height: 80vh;
     }
 
@@ -413,15 +446,15 @@ a {
 }
 
 @media only screen and (min-width: 1200px) {
-.characters img {
-    max-width: 200px;
-    max-height: 200px;
-}
+    .characters img {
+        max-width: 200px;
+        max-height: 200px;
+    }
 
-.game-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-}
+    .game-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
     .right-pane {
         box-sizing: border-box;
@@ -529,6 +562,7 @@ a {
     .answers {
         max-height: 350px;
     }
+
     .answers p {
         font-size: 35px;
         max-width: 80%;
