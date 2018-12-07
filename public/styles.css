@@ -213,17 +213,13 @@ h4 {
     padding: 5px;
 }
 
-.char_one p,
-.char_two p,
-.char_tres p {
+.char p {
     padding-right: 5px;
     padding-left: 5px;
     margin: 5px;
 }
 
-.char_one,
-.char_two,
-.char_tres {
+.char {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -372,31 +368,22 @@ a {
     display: none;
 }
 
-.stat_one,
-.stat_two,
-.stat_tres {
+.stat {
     max-width: 200px;
     margin-top: 10px;
 }
 
-.char_one:hover img,
-.char_two:hover img,
-.char_tres:hover img,
+.char img {
+    box-shadow: 0px 0px 5px 5px transparent;
+}
+
+.char:hover img,
 .answers p:hover,
 .logo:hover {
     box-shadow: 0px 0px 5px 5px #F7DBA7;
 }
 
-.char_one:hover img,
-.char_two:hover img,
-.char_tres:hover img {
-    padding: 5px;
-}
-
-.char_one:hover p,
-.char_two:hover p,
-.char_tres:hover p {
-    padding: 5px;
+.char:hover p {
     background-color: #F7DBA7;
     color: #1E2D2F;
 }
@@ -433,9 +420,7 @@ a {
         display: none;
     }
 
-    .char_one p,
-    .char_two p,
-    .char_tres p {
+    .char {
         width: 200px;
     }
 
@@ -626,7 +611,7 @@ a {
     }
 
     .characters img {
-        max-width: 200px;
+        width: 200px;
         max-height: 200px;
     }
 
@@ -647,10 +632,6 @@ a {
     }
     stats {
         width: 12%;
-    }
-
-    .num-drunk {
-        /* animation: wobble 1s linear infinite alternate */
     }
 
     @keyframes wobble {

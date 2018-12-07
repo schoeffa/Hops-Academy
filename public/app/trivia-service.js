@@ -66,12 +66,11 @@ function TriviaService($http, $location) {
                     .replace(/&ntilde;/g, "\ñ")
                     .replace(/&aacute;/g, "\á")
                     .replace(/&Ocirc;/g, "\Ô");
-
             }
+
             self.question = {
                 question: self.fix(self.trivia.question),
                 answers: [{
-
                         answer: self.fix(self.trivia.incorrect_answers[0]),
                         eval: false
                     },
@@ -127,9 +126,9 @@ function TriviaService($http, $location) {
                 let textShadow = '';
                 for (let i = 1; i <= drunkenness; i++) {
                     if (i % 2 === 0) {
-                        textShadow += `-${3 * i}px -${3*i}px ${i}px rgba(0, 0, 0, ${(1- (1/i))}),`;
+                        textShadow += `-${2 * i}px -${2*i}px ${i}px rgba(0, 0, 0, ${(1- (1/i))}),`;
                     } else {
-                        textShadow += `${3*i}px ${3*i}px ${i}px rgba(0, 0, 0, ${(1-(1/i))}),`;
+                        textShadow += `${2*i}px ${2*i}px ${i}px rgba(0, 0, 0, ${(1-(1/i))}),`;
                     }
                 }
                 textShadow = textShadow.substring(0, textShadow.length - 1);
@@ -140,7 +139,7 @@ function TriviaService($http, $location) {
             case 3:
                 let distract = self.findKeyframesRule("distract");
                 document.getElementById("distraction-pic").style.display = "inline-block";
-                document.getElementById("distraction-pic").style.animation = `distract 5s linear infinite alternate`;
+                document.getElementById("distraction-pic").style.animation = `distract 5s linear 1s infinite alternate`;
                 distract.appendRule(`${100-(3 * drunkenness)}% {opacity: 1; z-index: 100;}`);
                 distract.appendRule(`100% {opacity: 1; z-index: 100;}`);
                 break;
@@ -148,7 +147,7 @@ function TriviaService($http, $location) {
                 document.querySelectorAll(".question")[0].classList.add('round4');
                 document.querySelectorAll(".answers")[0].classList.add('round4');
                 let focus = self.findKeyframesRule("focus");
-                focus.appendRule(`100% {filter: blur(${2.5 * drunkenness}px);}`);
+                focus.appendRule(`100% {filter: blur(${1.5 * drunkenness}px);}`);
                 break;
         }
     }
