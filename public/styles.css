@@ -647,10 +647,6 @@ a {
         margin-left: 5px;
     }
 
-    .desk-stat {
-        display: inline-block;
-    }
-
     .stats-bar {
         position: relative;
         flex-direction: column;
@@ -664,10 +660,17 @@ a {
     }
 
     .desk-stat {
+        display: inline-block;
         font-family: 'Kreon';
         background-color: #1E2D2F;
         color: #F7DBA7;
         text-align: center;
+    }
+
+    .divider {
+        font-size: 2em;
+        text-shadow: 2px 2px #C57B57;
+        margin: 0;
     }
 
     .drunk-stat,
@@ -677,17 +680,21 @@ a {
         height: auto;
     }
 
+    .drunk-stat p {
+        margin: 0px;
+    }
+
     .stat-header {
-        font-size: 1.5em;
+        font-size: 2.5em;
         text-shadow: 2px 2px #C57B57;
         -webkit-text-stroke-color: #1E2D2F;
         -webkit-text-stroke-width: 1px;
-        margin-bottom: 0px;
+        margin: 0px;
     }
 
     .num-display {
-        -webkit-text-stroke-color: #1E2D2F;
-        -webkit-text-stroke-width: 1px;
+        font-size: 2.5em;
+        margin: 0;
     }
 
     .beer-choices {
