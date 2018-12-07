@@ -119,11 +119,23 @@ title-screen {
     height: 100vh;
 }
 
+.title-banner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.title-banner img {
+    height: 19%;
+    width: 19%;
+}
+
 h2 {
     text-align: center;
     font-family: 'Cinzel', serif;
     font-size: 35px;
     margin: 10px;
+    color: #F7DBA7;
 }
 
 h4 {
@@ -131,6 +143,7 @@ h4 {
     font-size: 20px;
     margin: 5px 60px;
     text-align: center;
+    color: #C57B57;
 }
 
 .blurb {
@@ -138,12 +151,17 @@ h4 {
     text-align: center;
     margin: 0px 20px;
     font-size: 18px;
+    color: white;
 }
 
 .character_choice {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.character_choice img {
+    border-radius: 105px;
 }
 
 .characters {
@@ -153,7 +171,9 @@ h4 {
     width: 100%;
     justify-content: center;
     font-size: 18px;
-    text-shadow: 2px 2px rgba(30, 45, 47, .2);
+    /* text-shadow: 2px 2px rgba(30, 45, 47, .2); */
+    -webkit-text-stroke-color: #1E2D2F;
+        -webkit-text-stroke-width: 1px;
 }
 
 .characters img {
@@ -177,12 +197,14 @@ h4 {
 }
 
 .title-screen {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: #1E2D2F;
+    /* background-color: rgba(255, 255, 255, 0.9); */
     /* width: 85vw; */
     height: 95vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: white;
 }
 
 /* trivia component */
@@ -317,6 +339,7 @@ a {
 .char_one:hover p, .char_two:hover p, .char_tres:hover p {
     padding: 5px;
     background-color: #F7DBA7;
+    color: #1E2D2F;
 }
 .round2 {
     animation: xvision 2s cubic-bezier(0, .28, 1, 1.25) infinite alternate;
@@ -369,7 +392,7 @@ a {
 
     .title-screen {
         width: 80%;
-        box-shadow: 0px 0px 10px 5px rgba(30, 45, 47, 0.8);
+        box-shadow: 0px 0px 10px 5px #F7DBA7;
     }
 
     title-screen {
@@ -377,8 +400,13 @@ a {
         justify-content: center;
     }
 
+    .title-banner img {
+        height: 16%;
+        width: 16%;
+    }
+
     h2 {
-        font-size: 40px;
+        font-size: 42px;
     }
 
     h4 {
@@ -433,11 +461,11 @@ a {
 
     @keyframes flashyborder {
         from {
-            text-shadow: 2px 10px #F7DBA7
+            text-shadow: 2px -8px #F7DBA7
         }
 
         to {
-            text-shadow: 4px 20px #C57B57
+            text-shadow: 4px -18px #C57B57
         }
     }
 
@@ -514,6 +542,16 @@ a {
 }
 
 @media only screen and (min-width: 1200px) {
+    
+    h2 {
+        font-size: 52pt;
+    }
+
+    .title-banner img {
+        height: 11%;
+        width: 11%;
+    }
+    
     .characters img {
         max-width: 200px;
         max-height: 200px;
