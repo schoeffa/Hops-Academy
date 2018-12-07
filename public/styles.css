@@ -461,11 +461,11 @@ a {
 
     @keyframes flashyborder {
         from {
-            text-shadow: 2px -8px #F7DBA7
+            text-shadow: 0px 5px #F7DBA7
         }
 
         to {
-            text-shadow: 4px -18px #C57B57
+            text-shadow: 0px 12px #C57B57
         }
     }
 
