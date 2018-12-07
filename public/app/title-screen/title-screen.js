@@ -10,6 +10,15 @@ const titleScreen = {
             TriviaService.setUser(intelligence, tolerance);
             $location.path("/game")
         }
+        vm.showInstructions = false;
+
+        vm.onShow = () => {
+            if (vm.showInstructions === false) {
+                vm.showInstructions = true;
+            } else {
+                vm.showInstructions = false;
+            }
+        }
     }]
 }
 
