@@ -1,18 +1,21 @@
 <section class="stats-bar">
+    <section desk-stat>
+        <img class="avatar" src="../../../images/hops-logo-peach-hat.png">
+    </section>
     <section class="desk-stat">
         <p class="stat-header">Difficulty:</p>
         <p class="num-display">{{$ctrl.user.difficulty}}</p>
+        <p class="divider">________</p>
     </section>
     <section class="desk-stat">
         <p class="stat-header">Tolerance:</p>
         <p class="num-display">{{$ctrl.user.tolerance}}</p>
-    </section>
-    <section desk-stat>
-        <img class="avatar" src="../../../images/hops-logo-peach-hat.png">
+        <p class="divider">________</p>
     </section>
     <section class="drunk-stat">
-        <p class="stat-header">Drunkenness:</p>
-        <p class="num-display">{{$ctrl.user.drunkenness}}</p>
+        <p class="stat-header">Buzz:</p>
+        <p class="num-display" remove-wobble>{{$ctrl.user.drunkenness}}</p>
+        <p class="divider">________</p>
     </section>
     <section class="round-num">
         <p class="stat-header">Round #</p>

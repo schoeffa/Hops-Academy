@@ -22,24 +22,25 @@ function TriviaService($http, $location) {
         return self.user;
     }
 
+    self.shuffle = (array) => {
+        for (let i = array.length - 1; i >= 0; i--) {
+
+            let randomIndex = Math.floor(Math.random() * (i + 1));
+            let itemAtIndex = array[randomIndex];
+
+            array[randomIndex] = array[i];
+            array[i] = itemAtIndex;
+        }
+        return array;
+    }
+
     self.getBeer = () => {
         return $http({
             url: "/beer",
             method: "GET"
         }).then((result) => {
             self.beerList = result.data.data;
-            self.shuffleBeers = () => {
-                for (let i = self.beerList.length - 1; i >= 0; i--) {
-
-                    let randomIndex = Math.floor(Math.random() * (i + 1));
-                    let itemAtIndex = self.beerList[randomIndex];
-
-                    self.beerList[randomIndex] = self.beerList[i];
-                    self.beerList[i] = itemAtIndex;
-                }
-                return self.beerList;
-            }
-            self.shuffleBeers();
+            self.beerList = self.shuffle(self.beerList);
             return [self.beerList[0], self.beerList[1], self.beerList[2]];
         });
     }
@@ -88,18 +89,7 @@ function TriviaService($http, $location) {
                     }
                 ]
             }
-            self.shuffleAnswers = () => {
-                for (let i = self.question.answers.length - 1; i >= 0; i--) {
-
-                    let randomIndex = Math.floor(Math.random() * (i + 1));
-                    let itemAtIndex = self.question.answers[randomIndex];
-
-                    self.question.answers[randomIndex] = self.question.answers[i];
-                    self.question.answers[i] = itemAtIndex;
-                }
-                return self.question.answers;
-            }
-            self.shuffleAnswers();
+            self.question.answers = self.shuffle(self.question.answers);
             return self.question
         })
     }
@@ -150,9 +140,9 @@ function TriviaService($http, $location) {
             case 3:
                 let distract = self.findKeyframesRule("distract");
                 document.getElementById("distraction-pic").style.display = "inline-block";
-                document.getElementById("distraction-pic").style.animation = `distract 5s linear 1s infinite alternate`;
-                distract.appendRule(`${100-(3 * drunkenness)}% {opacity: 1`);
-                distract.appendRule(`100% {opacity: 1`);
+                document.getElementById("distraction-pic").style.animation = `distract 5s linear infinite alternate`;
+                distract.appendRule(`${100-(3 * drunkenness)}% {opacity: 1; z-index: 100;}`);
+                distract.appendRule(`100% {opacity: 1; z-index: 100;}`);
                 break;
             case 4:
                 document.querySelectorAll(".question")[0].classList.add('round4');

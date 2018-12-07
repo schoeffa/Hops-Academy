@@ -203,7 +203,7 @@ h4 {
     font-size: 18px;
     /* text-shadow: 2px 2px rgba(30, 45, 47, .2); */
     -webkit-text-stroke-color: #1E2D2F;
-        -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-width: 1px;
 }
 
 .characters img {
@@ -213,13 +213,17 @@ h4 {
     padding: 5px;
 }
 
-.char_one p, .char_two p, .char_tres p {
+.char_one p,
+.char_two p,
+.char_tres p {
     padding-right: 5px;
     padding-left: 5px;
     margin: 5px;
 }
 
-.char_one, .char_two, .char_tres {
+.char_one,
+.char_two,
+.char_tres {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -251,17 +255,29 @@ h4 {
 }
 
 @keyframes distract {
-    0% {opacity: 0;}
-    10% {opacity: 0;}
-    25% {z-index: -10;}
-    30% {opacity: .5; z-index: 10;}
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0;
+    }
+
+    25% {
+        z-index: -10;
+    }
+
+    30% {
+        opacity: .5;
+        z-index: 100;
+    }
 }
 
 trivia {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
+    /* height: 100%; */
 }
 
 .question-container {
@@ -354,26 +370,37 @@ a {
 
 .correct-overlay {
     display: none;
-}   
+}
 
-.stat_one, .stat_two, .stat_tres{
+.stat_one,
+.stat_two,
+.stat_tres {
     max-width: 200px;
     margin-top: 10px;
 }
 
-.char_one:hover img, .char_two:hover img, .char_tres:hover img, .answers p:hover, .logo:hover {
+.char_one:hover img,
+.char_two:hover img,
+.char_tres:hover img,
+.answers p:hover,
+.logo:hover {
     box-shadow: 0px 0px 5px 5px #F7DBA7;
 }
 
-.char_one:hover img, .char_two:hover img, .char_tres:hover img {
+.char_one:hover img,
+.char_two:hover img,
+.char_tres:hover img {
     padding: 5px;
 }
 
-.char_one:hover p, .char_two:hover p, .char_tres:hover p {
+.char_one:hover p,
+.char_two:hover p,
+.char_tres:hover p {
     padding: 5px;
     background-color: #F7DBA7;
     color: #1E2D2F;
 }
+
 .round2 {
     animation: xvision 2s cubic-bezier(0, .28, 1, 1.25) infinite alternate;
 }
@@ -406,7 +433,9 @@ a {
         display: none;
     }
 
-    .char_one p, .char_two p, .char_tres p {
+    .char_one p,
+    .char_two p,
+    .char_tres p {
         width: 200px;
     }
 
@@ -445,6 +474,7 @@ a {
     h4 {
         font-size: 30px;
     }
+
     .instruction-overlay {
         width:100%;
         position: absolute;
@@ -452,17 +482,20 @@ a {
     }
     beer-list{
         justify-content: center;
-        flex-direction: row; 
-        flex-wrap: wrap; 
+        flex-direction: row;
+        flex-wrap: wrap;
     }
+
     .logo {
         max-width: 160px;
         max-height: 160px;
         margin-top: 60px;
     }
-    .beer-choices{
+
+    .beer-choices {
         width: 45%;
     }
+
     .beer-overlay p {
         margin-top: 45px;
     }
@@ -519,7 +552,7 @@ a {
 
     .correct-overlay p {
         color: #F7DBA7;
-        
+
     }
 
     .correct-overlay-images {
@@ -561,7 +594,9 @@ a {
 
     .question-container {
         margin-top: 0;
-        height: 80vh;
+        height: 100%;
+        top: 50px;
+        position: relative;
     }
 
     .answers {
@@ -580,7 +615,7 @@ a {
 }
 
 @media only screen and (min-width: 1200px) {
-    
+
     h2 {
         font-size: 52pt;
     }
@@ -589,7 +624,7 @@ a {
         height: 11%;
         width: 11%;
     }
-    
+
     .characters img {
         max-width: 200px;
         max-height: 200px;
@@ -612,6 +647,20 @@ a {
     }
     stats {
         width: 12%;
+    }
+
+    .num-drunk {
+        /* animation: wobble 1s linear infinite alternate */
+    }
+
+    @keyframes wobble {
+        25% {
+            transform: rotate(15deg);
+        }
+
+        75% {
+            transform: rotate(-15deg);
+        }
     }
 
     .avatar {
@@ -638,10 +687,6 @@ a {
         margin-left: 5px;
     }
 
-    .desk-stat {
-        display: inline-block;
-    }
-
     .stats-bar {
         position: relative;
         flex-direction: column;
@@ -655,10 +700,17 @@ a {
     }
 
     .desk-stat {
+        display: inline-block;
         font-family: 'Kreon';
         background-color: #1E2D2F;
         color: #F7DBA7;
         text-align: center;
+    }
+
+    .divider {
+        font-size: 2em;
+        text-shadow: 2px 2px #C57B57;
+        margin: 0;
     }
 
     .drunk-stat,
@@ -668,17 +720,21 @@ a {
         height: auto;
     }
 
+    .drunk-stat p {
+        margin: 0px;
+    }
+
     .stat-header {
-        font-size: 1.5em;
+        font-size: 2.5em;
         text-shadow: 2px 2px #C57B57;
         -webkit-text-stroke-color: #1E2D2F;
         -webkit-text-stroke-width: 1px;
-        margin-bottom: 0px;
+        margin: 0px;
     }
 
     .num-display {
-        -webkit-text-stroke-color: #1E2D2F;
-        -webkit-text-stroke-width: 1px;
+        font-size: 2.5em;
+        margin: 0;
     }
 
     .beer-choices {
@@ -718,7 +774,7 @@ a {
         width: 80%;
     }
 
-/* ------- Start Correct Screen ------ */
+    /* ------- Start Correct Screen ------ */
 
     #correct-arrows {
         font-size: 225px;
