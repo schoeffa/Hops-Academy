@@ -65,7 +65,12 @@ function TriviaService($http, $location) {
                     .replace(/&ouml;/g, "\ö")
                     .replace(/&ntilde;/g, "\ñ")
                     .replace(/&aacute;/g, "\á")
-                    .replace(/&Ocirc;/g, "\Ô");
+                    .replace(/&Ocirc;/g, "\Ô")
+                    .replace(/&uacute;/g, "\ú")
+                    .replace(/&egrave;/g, "\è")
+                    .replace(/&szlig;/g, "\ß")
+                    .replace(/&ecirc;/g, "\ê");
+
             }
 
             self.question = {
