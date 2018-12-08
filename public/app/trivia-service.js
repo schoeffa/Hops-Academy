@@ -126,9 +126,9 @@ function TriviaService($http, $location) {
                 let textShadow = '';
                 for (let i = 1; i <= drunkenness; i++) {
                     if (i % 2 === 0) {
-                        textShadow += `-${2 * i}px -${2*i}px ${i}px rgba(0, 0, 0, ${(1- (1/i))}),`;
+                        textShadow += `-${2 * i}px -${2*i}px ${i}px rgba(0, 0, 0, ${(1-(1/i))/2}),`;
                     } else {
-                        textShadow += `${2*i}px ${2*i}px ${i}px rgba(0, 0, 0, ${(1-(1/i))}),`;
+                        textShadow += `${2*i}px ${2*i}px ${i}px rgba(0, 0, 0, ${(1-(1/i))/2}),`;
                     }
                 }
                 textShadow = textShadow.substring(0, textShadow.length - 1);
