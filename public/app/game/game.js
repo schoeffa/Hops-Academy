@@ -22,10 +22,10 @@ const game = {
             vm.beers();
             vm.showCorrect = false;
             vm.showMobilePick = true;
-            TriviaService.addAnimation(vm.roundNum, vm.user.drunkenness);
+            TriviaService.addAnimation(vm.roundNum, vm.user.drunkenness, vm.currentQuestion);
             TriviaService.removeAnimation(vm.roundNum);
         }
-
+        
         vm.search = () => {
             TriviaService.getTrivia(vm.user.difficulty).then((result) => {
                 vm.currentQuestion = result;
@@ -42,8 +42,6 @@ const game = {
                 vm.currentBeers = result;
             });
         }
-
-
 
         vm.beers();
         vm.search();
