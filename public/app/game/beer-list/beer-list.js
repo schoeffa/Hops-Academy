@@ -2,7 +2,7 @@
 const beerList = {
     templateUrl: "app/game/beer-list/beer-list.html",
 
-    bindings: { currentBeers: "<", showPick: "=" , showCorrect: "=", showMobilePick: "="},
+    bindings: { currentBeers: "<", showPick: "=" , showCorrect: "=", showMobilePick: "=", roundNum: "<"},
     controller: ["TriviaService", function (TriviaService) {
         const vm = this;
 
@@ -17,7 +17,10 @@ const beerList = {
             }
 
             vm.showCorrect = false;
-            vm.showPick = false
+            vm.showPick = false;
+            if (vm.roundNum === 5) {
+                TriviaService.setUpCharacters();
+            }
             if (window.matchMedia("(max-width: 600px)").matches) {
                 vm.showMobilePick = false;
             }

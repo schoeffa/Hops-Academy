@@ -170,7 +170,7 @@ function TriviaService($http, $location) {
         }
     }
 
-    self.addAnimation = (round, drunkenness, question) => {
+    self.addAnimation = (round, drunkenness) => {
         // console.log(question);
         switch (round) {
             case 2:
@@ -203,7 +203,7 @@ function TriviaService($http, $location) {
                 focus.appendRule(`100% {filter: blur(${1.5 * drunkenness}px);}`);
                 break;
             case 5:
-                self.setUpCharacters();
+                // self.setUpCharacters();
                 let rot = self.findKeyframesRule("rot");
                 rot.appendRule(`from { transform: rotate(0deg) translate(-${drunkenness}px) rotate(0deg);}`);
                 rot.appendRule(`to { transform: rotate(360deg) translate(-${drunkenness}px) rotate(-360deg);}`);

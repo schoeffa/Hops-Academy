@@ -520,7 +520,6 @@ a {
         background-color: rgb(30, 45, 47);
         position: absolute;
         z-index: 9999;
-        color: white;
         border-left: 5px solid #1E2D2F;
         border-right: 6px solid #1E2D2F;
     }
