@@ -131,7 +131,47 @@ function TriviaService($http, $location) {
         }
     }
 
+    self.setUpCharacters = () => {
+        let question = document.querySelectorAll(".question");
+        console.log(question);
+        for (let sentence of question) {
+            let newContent = '';
+            for (let i = 0; i < sentence.textContent.length; i++) {
+                let substring = sentence.textContent.substr(i, 1);
+                if (substring != " ") {
+                    if (i % 2 === 0) {
+                        newContent += '<span class="rotate">' + substring + '</span>';
+                    } else {
+                        newContent += '<span class="rotateccw">' + substring + '</span>';
+                    }
+                } else {
+                    newContent += substring;
+                }
+            }
+            sentence.innerHTML = newContent;
+        }
+        let answers = document.querySelectorAll(".answer");
+        console.log(answers);
+        for (let answer of answers) {
+            let newContent = '';
+            for (let i = 0; i < answer.textContent.length; i++) {
+                let substring = answer.textContent.substr(i, 1);
+                if (substring != " ") {
+                    if (i % 2 === 0) {
+                        newContent += '<span class="rotate">' + substring + '</span>';
+                    } else {
+                        newContent += '<span class="rotateccw">' + substring + '</span>';
+                    }
+                } else {
+                    newContent += substring;
+                }
+            }
+            answer.innerHTML = newContent;
+        }
+    }
+
     self.addAnimation = (round, drunkenness) => {
+        // console.log(question);
         switch (round) {
             case 2:
                 document.querySelectorAll(".question")[0].classList.add('round2');
@@ -139,9 +179,9 @@ function TriviaService($http, $location) {
                 let textShadow = '';
                 for (let i = 1; i <= drunkenness; i++) {
                     if (i % 2 === 0) {
-                        textShadow += `-${2 * i}px -${2*i}px ${i}px rgba(0, 0, 0, ${(1- (1/i))}),`;
+                        textShadow += `-${2.5 * i}px -${2.5 * i}px ${i}px rgba(0, 0, 0, ${(1-(1/i))/2}),`;
                     } else {
-                        textShadow += `${2*i}px ${2*i}px ${i}px rgba(0, 0, 0, ${(1-(1/i))}),`;
+                        textShadow += `${2.5 * i}px ${2.5 * i}px ${i}px rgba(0, 0, 0, ${(1-(1/i))/2}),`;
                     }
                 }
                 textShadow = textShadow.substring(0, textShadow.length - 1);
@@ -162,10 +202,20 @@ function TriviaService($http, $location) {
                 let focus = self.findKeyframesRule("focus");
                 focus.appendRule(`100% {filter: blur(${1.5 * drunkenness}px);}`);
                 break;
+            case 5:
+                // self.setUpCharacters();
+                let rot = self.findKeyframesRule("rot");
+                rot.appendRule(`from { transform: rotate(0deg) translate(-${drunkenness}px) rotate(0deg);}`);
+                rot.appendRule(`to { transform: rotate(360deg) translate(-${drunkenness}px) rotate(-360deg);}`);
+
+                let rotccw = self.findKeyframesRule("rotccw");
+                rotccw.appendRule(`from { transform: rotate(0deg) translate(-${drunkenness}px) rotate(0deg);}`);
+                rotccw.appendRule(`to { transform: rotate(-360deg) translate(-${drunkenness}px) rotate(360deg);}`);
+                break;
         }
     }
-
 }
+
 angular
     .module("HopsAcademy")
     .service("TriviaService", TriviaService)

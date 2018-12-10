@@ -3,7 +3,7 @@ const game = {
     template: `<section class="game-wrapper">
     <stats user="$ctrl.user" round-num="$ctrl.roundNum"></stats>
     <section class="right-pane">
-    <beer-list show-correct="$ctrl.showCorrect" show-mobile-pick="$ctrl.showMobilePick" ng-show="$ctrl.showMobilePick" show-pick="$ctrl.showPick" current-beers="$ctrl.currentBeers"></beer-list>
+    <beer-list round-num="$ctrl.roundNum" show-correct="$ctrl.showCorrect" show-mobile-pick="$ctrl.showMobilePick" ng-show="$ctrl.showMobilePick" show-pick="$ctrl.showPick" current-beers="$ctrl.currentBeers"></beer-list>
     <trivia id="trivia-window" round-num="$ctrl.roundNum" show-pick="$ctrl.showPick" evaluate="$ctrl.evaluate()" show-correct="$ctrl.showCorrect" show-wrong="$ctrl.showWrong" new-round="$ctrl.newRound()" current-question="$ctrl.currentQuestion"></trivia>
     </section>
     </section>`,
@@ -22,10 +22,10 @@ const game = {
             vm.beers();
             vm.showCorrect = false;
             vm.showMobilePick = true;
-            TriviaService.addAnimation(vm.roundNum, vm.user.drunkenness);
+            TriviaService.addAnimation(vm.roundNum, vm.user.drunkenness, vm.currentQuestion);
             TriviaService.removeAnimation(vm.roundNum);
         }
-
+        
         vm.search = () => {
             TriviaService.getTrivia(vm.user.difficulty).then((result) => {
                 vm.currentQuestion = result;
@@ -43,8 +43,6 @@ const game = {
                 vm.currentBeers = result;
             });
         }
-
-
 
         vm.beers();
         vm.search();

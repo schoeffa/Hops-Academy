@@ -5,9 +5,11 @@ const trivia = {
     controller: ["TriviaService", "$location", function (TriviaService, $location) {
         const vm = this;
         vm.showWin = false
+        
         vm.goHome = () => {
             $location.path("/")
         }
+
         vm.evaluate = (truthiness) => {
             if (truthiness && vm.roundNum === 5) {
                 vm.showWin = true
@@ -24,10 +26,10 @@ const trivia = {
                 }
             }
         }
+
         vm.newGame = () => {
             TriviaService.newGame()
-        }
-
+        }  
 
     }]
 }
