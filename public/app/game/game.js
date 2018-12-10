@@ -29,6 +29,7 @@ const game = {
         vm.search = () => {
             TriviaService.getTrivia(vm.user.difficulty).then((result) => {
                 vm.currentQuestion = result;
+                console.log(vm.currentQuestion)
             })
         }
 

@@ -93,7 +93,15 @@ function TriviaService($http, $location) {
             return self.question
         })
     }
-
+    self.findCorrect = () => {
+        console.log("I'm in the service")
+        console.log(self.questions)
+        // for (let i = 0; i <= self.question.answers.length; i++){
+        //     if(self.question.answers.answer.eval[i] === true) {
+        //         console.log(self.question.answers)
+            // }
+        }
+    
     self.findKeyframesRule = (rule) => {
         var ss = document.styleSheets;
         for (let j = 0; j < ss[4].cssRules.length; j++) {
