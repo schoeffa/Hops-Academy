@@ -133,7 +133,6 @@ function TriviaService($http, $location) {
 
     self.setUpCharacters = () => {
         let question = document.querySelectorAll(".question");
-        console.log(question);
         for (let sentence of question) {
             let newContent = '';
             for (let i = 0; i < sentence.textContent.length; i++) {
@@ -151,7 +150,6 @@ function TriviaService($http, $location) {
             sentence.innerHTML = newContent;
         }
         let answers = document.querySelectorAll(".answer");
-        console.log(answers);
         for (let answer of answers) {
             let newContent = '';
             for (let i = 0; i < answer.textContent.length; i++) {
