@@ -170,6 +170,16 @@ h4 {
     font-size: 20px;
     color: white;
 }
+.blurb button {
+    background-color: #1E2D2F;
+    border: 3px solid #F7DBA7;
+    color: #F7DBA7;
+    font-size: .8em;
+    padding: 5px;
+    font-family: "Cinzel";
+    font-weight: lighter;
+    cursor: pointer;
+}
 .instruction-overlay{
     display: flex;
     justify-content: center;
@@ -399,7 +409,7 @@ a {
 
 .char:hover img,
 .answers p:hover,
-.logo:hover {
+.logo:hover, .blurb button:hover, .wrongOverlay button:hover, .winner-winner-chicken-dinner button:hover {
     box-shadow: 0px 0px 5px 5px #F7DBA7;
 }
 
@@ -496,7 +506,9 @@ a {
         display: flex;
         justify-content: center;
     }
-
+    .blurb button {
+        font-size: 1.2em;
+    }
     .title-banner img {
         height: 16%;
         width: 16%;
@@ -608,18 +620,6 @@ a {
         height: 18%;
         width: 45%;
     }
-
-    .correct-overlay button {
-        display: none;
-        background-color: #1E2D2F;
-        border: 3px solid #F7DBA7;
-        color: #F7DBA7;
-        font-size: .6em;
-        padding: 5px;
-        font-family: "Cinzel";
-        cursor: pointer;
-    }
-
     .winner-winner-chicken-dinner {
         font-size: 4em;
         width: 89%;
@@ -653,7 +653,9 @@ a {
 }
 
 @media only screen and (min-width: 1200px) {
-
+    .blurb button {
+        font-size: 1.2em;
+    }
     h2 {
         font-size: 52pt;
     }
