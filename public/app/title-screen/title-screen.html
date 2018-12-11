@@ -11,15 +11,19 @@
         <button ng-click="$ctrl.onShow();">Instructions</button>
     </section>
     <section ng-show="$ctrl.showInstructions" class="instruction-overlay">
+      <img src="../../images/coaster.png">
         <section class="how-to-play">
-            <p>Choose a character to start the game. Note that each character represents either Easy, Medium, or Hard
-                and that will determine the difficulty of the questions.</p>
-            <p>There are five rounds to this game. Each round starts with you drinking a beer, after which your trivia
-                question will then show up. Get the question right, and you must choose a new beer before the next
-                question pops up. Get through all five Rounds and you are a Hops Academy Graduate!</p>
-            <p>Watch for the water option! You will only be able to </p>
+            <ol>
+                <li>Choose a character to start the game.</li>
+                <li>Each Character represents how hard the questions will be and have a randomly assigned tolerance to alcohol.</li>
+                <li>Start each round by clicking a beer to drink. This will update your Buzz.</li>
+                <li>There are 5 rounds, and you must get the questions right to proceed to the next round.</li>
+                <li>The water option will lower your Buzz level and is available only once per game.</li>
+                <li>Watch for all the distractions that are simulated as if you were actually drinking.</li>
+            </ol> 
             <button ng-click="$ctrl.onShow();">X</button>
         </section>
+      <img src="../../images/coaster.png">
     </section>
     <section class="character_choice">
         <h4>Choose a character to start!</h4>
