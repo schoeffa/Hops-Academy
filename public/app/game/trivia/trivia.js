@@ -1,7 +1,7 @@
 "use strict";
 const trivia = {
     templateUrl: "app/game/trivia/trivia.html",
-    bindings: { newRound: "&", currentQuestion: "<", showCorrect: "=", showWrong: "=", showPick: "<", roundNum: "<", showTime: "<", timerId: "=" },
+    bindings: { newRound: "&", currentQuestion: "<", showCorrect: "=", showWrong: "=", showPick: "<", roundNum: "<", timerId: "=" },
     controller: ["TriviaService", "$location", function (TriviaService, $location) {
         const vm = this;
         vm.showWin = false

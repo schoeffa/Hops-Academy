@@ -4,7 +4,7 @@ const game = {
     <stats time-left="$ctrl.timeLeft" user="$ctrl.user" round-num="$ctrl.roundNum"></stats>
     <section class="right-pane">
     <beer-list timer-id="$ctrl.timerId" countdown="$ctrl.countdown()" round-num="$ctrl.roundNum" show-correct="$ctrl.showCorrect" show-mobile-pick="$ctrl.showMobilePick" ng-show="$ctrl.showMobilePick" show-pick="$ctrl.showPick" current-beers="$ctrl.currentBeers"></beer-list>
-    <trivia timer-id="$ctrl.timerId" id="trivia-window" round-num="$ctrl.roundNum" show-time="$ctrl.showTime" show-pick="$ctrl.showPick" evaluate="$ctrl.evaluate()" show-correct="$ctrl.showCorrect" show-wrong="$ctrl.showWrong" new-round="$ctrl.newRound()" current-question="$ctrl.currentQuestion"></trivia>
+    <trivia timer-id="$ctrl.timerId" id="trivia-window" round-num="$ctrl.roundNum" show-pick="$ctrl.showPick" evaluate="$ctrl.evaluate()" show-correct="$ctrl.showCorrect" show-wrong="$ctrl.showWrong" new-round="$ctrl.newRound()" current-question="$ctrl.currentQuestion"></trivia>
     </section>
     </section>`,
     controller: ["TriviaService", function (TriviaService) {
@@ -13,15 +13,15 @@ const game = {
         vm.roundNum = 1;
         vm.showCorrect = false;
         vm.showWrong = false;
-        vm.showTime = false;
         vm.showPick = true;
         vm.showMobilePick = true;
         vm.timeLeft = 15;
         vm.timerId;
 
+        vm.currentBeers = TriviaService.getBeer();
+
         vm.countdown = () => {
             if (vm.timeLeft === -1) {
-                vm.showTime = true;
                 clearTimeout(vm.timerId);
                 document.getElementById("timeOverlay").style.display = "flex";
             } else {
@@ -36,7 +36,7 @@ const game = {
             vm.timeLeft = 15;
             document.getElementById("time").innerText = vm.timeLeft;
             vm.search();
-            vm.beers();
+            vm.currentBeers = TriviaService.getBeer();
             vm.showCorrect = false;
             vm.showMobilePick = true;
             vm.showTime = false;
@@ -50,18 +50,18 @@ const game = {
             })
         }
 
-        vm.beers = () => {
-            TriviaService.getBeer().then((result) => {
-                for (let entry of result) {
-                    if (!entry.abv) {
-                        entry.abv = 4.5;
-                    }
-                }
-                vm.currentBeers = result;
-            });
-        }
+        // vm.beers = () => {
+        //     TriviaService.getBeer().then((result) => {
+        //         for (let entry of result) {
+        //             if (!entry.abv) {
+        //                 entry.abv = 4.5;
+        //             }
+        //         }
+        //         vm.currentBeers = result;
+        //     });
+        // }
 
-        vm.beers();
+        // vm.beers();
         vm.search();
     }]
 };

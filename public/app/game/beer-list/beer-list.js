@@ -8,7 +8,6 @@ const beerList = {
 
         vm.beerSelect = (selectedBeer) => {
             TriviaService.updateDrunkenness(selectedBeer.abv);
-            console.log(selectedBeer);
             for (let i = 0; i <= 2; i++) {
                 if (vm.currentBeers[i].id === selectedBeer.id) {
                     vm.currentBeers = vm.currentBeers.slice(i, i + 1);
