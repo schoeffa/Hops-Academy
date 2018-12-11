@@ -5,11 +5,12 @@ const titleScreen = {
         const vm = this;
         vm.charArray = ["images/girl.png", "images/guy.png", "images/character3.png"];
         vm.charArray = TriviaService.shuffle(vm.charArray);
+        vm.showInstructions = false;
+
         vm.startGame = (intelligence, tolerance) => {
             TriviaService.setUser(intelligence, tolerance);
             $location.path("/game")
         }
-        vm.showInstructions = false;
 
         vm.onShow = () => {
             if (vm.showInstructions === false) {
@@ -18,6 +19,19 @@ const titleScreen = {
                 vm.showInstructions = false;
             }
         }
+
+        vm.beers = () => {
+            TriviaService.loadBeer()
+            // for (let entry of result) {
+            //     if (!entry.abv) {
+            //         entry.abv = 4.5;
+            //     }
+            // }
+            // vm.currentBeers = result;
+        };
+
+
+        vm.beers();
     }]
 }
 

@@ -45,7 +45,7 @@ beer-list {
 }
 
 .beer-choices p {
-    margin: 3px 0px;
+    margin: 3px 10px;
 }
 
 .logo {
@@ -67,6 +67,7 @@ beer-list {
 .anim-logo {
     position: fixed;
     transition: all 2s;
+    z-index: -10;
 }
 
 .anim-logo-active {
@@ -445,6 +446,10 @@ a {
 @keyframes xvision {}
 
 @media only screen and (min-width: 600px) {
+.beer-name {
+    margin-left: 5px;
+}
+
 .timer {
     position: fixed;
     right: 0px;
