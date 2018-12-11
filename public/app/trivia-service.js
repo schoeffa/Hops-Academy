@@ -2,7 +2,7 @@
 
 function TriviaService($http, $location) {
     const self = this;
-
+    // Creates user object with properties based on parameters and initial state of drunkenness
     self.setUser = (difficulty, tolerance) => {
         self.user = {
             difficulty: difficulty,
@@ -10,10 +10,11 @@ function TriviaService($http, $location) {
             drunkenness: 0
         }
     }
-
+    // Routes back to title screen to start a new game
     self.newGame = () => {
         $location.path('/titleScreen');
     }
+    // Increments users drunkenness based on abv of selected beer
     self.updateDrunkenness = (abv) => {
         self.user.drunkenness = self.user.drunkenness + Math.round((Number(abv) / Number(self.user.tolerance)) + 1);
     }
@@ -21,7 +22,7 @@ function TriviaService($http, $location) {
     self.getUser = () => {
         return self.user;
     }
-
+    // Shuffles an array using  Fisher-Yates shuffle 
     self.shuffle = (array) => {
         for (let i = array.length - 1; i >= 0; i--) {
 
@@ -33,29 +34,37 @@ function TriviaService($http, $location) {
         }
         return array;
     }
-
+    //Makes a call to the BreweryDB API and replaces missing abv values with default value of 4.5
     self.loadBeer = () => {
         return $http({
             url: "/beer",
             method: "GET"
         }).then((result) => {
             self.beerList = result.data.data;
+            for (let entry of self.beerList) {
+                if (!entry.abv) {
+                    entry.abv = 4.5;
+                }
+            }
         });
     }
-
+    // Returns 3 random beers from the array returned by API and removes them from from array
     self.getBeer = () => {
         self.beerList = self.shuffle(self.beerList);
-        return self.beerList.splice(0,3);
+        return self.beerList.splice(0, 3);
     }
-    // First question//
+    // Makes call the Open Trivia API and returns an object containing a question and 4 possible answers
     self.getTrivia = (difficulty) => {
+        // Limits API call to specific categories and randomly selects one
         self.categoryList = [12, 14, 16, 21, 23, 25, 27];
         self.category = self.categoryList[Math.floor(Math.random() * self.categoryList.length)];
+        // GET request to API with randomized category and difficulty specified by parameter
         return $http({
             method: "GET",
             url: `https://opentdb.com/api.php?amount=1&category=${self.category}&difficulty=${difficulty}&type=multiple`
         }).then((result) => {
             self.trivia = result.data.results["0"];
+            // Method to replace invalid character with their correct counterpart
             self.fix = (string) => {
                 return string.replace(/&quot;/g, "\"")
                     .replace(/&Delta;/g, "\∆")
@@ -100,7 +109,7 @@ function TriviaService($http, $location) {
             return self.question
         })
     }
-    
+    // Function that parses the stylesheet to look for keyframes rule identified by parameter
     self.findKeyframesRule = (rule) => {
         var ss = document.styleSheets;
         for (let j = 0; j < ss[4].cssRules.length; j++) {
@@ -109,7 +118,7 @@ function TriviaService($http, $location) {
             }
         }
     }
-
+    // Removes animation classes based on round parameter to prevent them from stacking on each other throughout game
     self.removeAnimation = (round) => {
         switch (round) {
             case 3:
@@ -125,7 +134,7 @@ function TriviaService($http, $location) {
                 break;
         }
     }
-
+    // Function used by round 5 animation to wrap individual characters in spans so they can be animated seperately
     self.setUpCharacters = () => {
         let question = document.querySelectorAll(".question");
         for (let sentence of question) {
@@ -162,9 +171,8 @@ function TriviaService($http, $location) {
             answer.innerHTML = newContent;
         }
     }
-
+    //Adds animation class to questions and answers based on number provided by round number and severity based on drunkenness parameter
     self.addAnimation = (round, drunkenness) => {
-        // console.log(question);
         switch (round) {
             case 2:
                 document.querySelectorAll(".question")[0].classList.add('round2');
@@ -196,7 +204,6 @@ function TriviaService($http, $location) {
                 focus.appendRule(`100% {filter: blur(${1.5 * drunkenness}px);}`);
                 break;
             case 5:
-                // self.setUpCharacters();
                 let rot = self.findKeyframesRule("rot");
                 rot.appendRule(`from { transform: rotate(0deg) translate(-${drunkenness}px) rotate(0deg);}`);
                 rot.appendRule(`to { transform: rotate(360deg) translate(-${drunkenness}px) rotate(-360deg);}`);
