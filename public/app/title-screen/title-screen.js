@@ -7,31 +7,19 @@ const titleScreen = {
         vm.charArray = TriviaService.shuffle(vm.charArray);
         vm.showInstructions = false;
 
+        // Sets the selected character as current user and redirects to the game component
         vm.startGame = (intelligence, tolerance) => {
             TriviaService.setUser(intelligence, tolerance);
             $location.path("/game")
         }
 
+        // Toggles display of instruction overlay
         vm.onShow = () => {
-            if (vm.showInstructions === false) {
-                vm.showInstructions = true;
-            } else {
-                vm.showInstructions = false;
-            }
+            vm.showInstructions = !vm.showInstructions;
         }
 
-        vm.beers = () => {
-            TriviaService.loadBeer()
-            // for (let entry of result) {
-            //     if (!entry.abv) {
-            //         entry.abv = 4.5;
-            //     }
-            // }
-            // vm.currentBeers = result;
-        };
-
-
-        vm.beers();
+        // Makes call to BreweryDB API and populates beer array in TriviaService
+        TriviaService.loadBeer()
     }]
 }
 

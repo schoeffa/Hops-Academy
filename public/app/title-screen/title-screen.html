@@ -8,8 +8,10 @@
         <p>Hops Academy, prove your worth while your tongue dances with delight! Choose your character and start
             downing that golden brown elixir of mischief! See if you’re able to answer simple trivia questions while
             the game simulates how drunk you are getting.</p>
+            <!-- Button to display instruction overlay -->
         <button ng-click="$ctrl.onShow();">Instructions</button>
     </section>
+    <!-- Instruction overlay -->
     <section ng-show="$ctrl.showInstructions" class="instruction-overlay">
         <section class="how-to-play">
             <p>Choose a character to start the game. Note that each character represents either Easy, Medium, or Hard
@@ -18,11 +20,13 @@
                 question will then show up. Get the question right, and you must choose a new beer before the next
                 question pops up. Get through all five Rounds and you are a Hops Academy Graduate!</p>
             <p>Watch for the water option! You will only be able to </p>
+            <!-- Button to hide instructions -->
             <button ng-click="$ctrl.onShow();">X</button>
         </section>
     </section>
     <section class="character_choice">
         <h4>Choose a character to start!</h4>
+        <!-- Sections containing characters that pass information to game start function on selection -->
         <section class="characters">
             <section ng-click="$ctrl.startGame('easy', 2);" class="char">
                 <img src={{$ctrl.charArray[0]}}>

@@ -1,4 +1,5 @@
 "use strict";
+// This directive removes the animation property for wobble when it finishes running so that it can be reapplied and run each round
 function removeWobble() {
     return {
         restrict: "A",
