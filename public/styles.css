@@ -22,7 +22,7 @@ beer-list {
     flex-direction: column;
     display: flex;
     position: fixed;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.99);
     z-index: 999999;
     width: 100%;
     justify-content: space-between;
@@ -30,7 +30,7 @@ beer-list {
     height: 100vh;
     margin-top: 0px;
     font-family: 'Kreon', serif;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .beer-choices {
@@ -98,7 +98,8 @@ beer-list {
     display: none;
 }
 
-.drunk-stat, .timer {
+.drunk-stat,
+.timer {
     font-family: 'Kreon';
     text-align: center;
     margin: 0 10px;
@@ -109,7 +110,8 @@ beer-list {
 }
 
 .drunk-stat p,
-.round-num p, .timer p {
+.round-num p,
+.timer p {
     margin-bottom: 8px;
 }
 
@@ -119,7 +121,8 @@ beer-list {
     text-align: center;
 }
 
-.round-num, .timer {
+.round-num,
+.timer {
     font-family: 'Kreon';
     text-align: center;
     margin: 0 10px;
@@ -170,6 +173,7 @@ h4 {
     font-size: 20px;
     color: white;
 }
+
 .blurb button {
     background-color: #1E2D2F;
     border: 3px solid #F7DBA7;
@@ -180,7 +184,8 @@ h4 {
     font-weight: lighter;
     cursor: pointer;
 }
-.instruction-overlay{
+
+.instruction-overlay {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -190,8 +195,9 @@ h4 {
     z-index: 778;
     width: 100%;
 }
+
 .how-to-play {
-    display:flex;
+    display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -203,12 +209,13 @@ h4 {
     padding: 0 7% 0 7%;
 
 }
+
 .how-to-play button {
     margin-bottom: 3%;
     background-color: #F7DBA7;
     border-radius: 10px;
     padding: 10px;
-    border:none;
+    border: none;
 }
 
 .character_choice {
@@ -314,7 +321,7 @@ trivia {
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* margin-top: 10px; */
+    margin-top: 20%;
     /* width: 100%; */
 }
 
@@ -332,7 +339,7 @@ trivia {
     font-size: 25px;
     padding: 8px;
     border-radius: 5px;
-    margin: 40px;
+    margin: 20px 40px;
     min-width: 100px;
     cursor: pointer;
 }
@@ -409,7 +416,10 @@ a {
 
 .char:hover img,
 .answers p:hover,
-.logo:hover, .blurb button:hover, .wrongOverlay button:hover, .winner-winner-chicken-dinner button:hover {
+.logo:hover,
+.blurb button:hover,
+.wrongOverlay button:hover,
+.winner-winner-chicken-dinner button:hover {
     box-shadow: 0px 0px 5px 5px #F7DBA7;
 }
 
@@ -441,11 +451,9 @@ a {
     display: inline-block;
 }
 
-@keyframes rot {
-}
+@keyframes rot {}
 
-@keyframes rotccw {
-}
+@keyframes rotccw {}
 
 @keyframes focus {
     0% {
@@ -456,27 +464,36 @@ a {
 @keyframes xvision {}
 
 @media only screen and (min-width: 600px) {
-.beer-name {
-    margin-left: 5px;
-}
-
-.timer {
-    position: fixed;
-    right: 0px;
-    top: 2%;
-    z-index: 0;
-}
-
-    beer-list {
-        position: relative;
-        min-height: 155px;
+    .beer-name {
+        margin-left: 5px;
+        font-size: 2em;
     }
 
-    #distraction-pic {
-        width: 87.5%;
+    beer-list {
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
     .pick-a-beer {
+        position: absolute;
+        font-size: 4em;
+    }
+
+    .beer-choices {
+        width: 45%;
+    }
+
+    .logo {
+        width: 300px;
+        height: 235px;
+        margin-top: 60px;
+        max-width: 300px;
+        max-height: 300px;
+    }
+
+    .anim-logo {
         display: none;
     }
 
@@ -506,9 +523,11 @@ a {
         display: flex;
         justify-content: center;
     }
+
     .blurb button {
         font-size: 1.2em;
     }
+
     .title-banner img {
         height: 16%;
         width: 16%;
@@ -523,47 +542,13 @@ a {
     }
 
     .instruction-overlay {
-        width:100%;
+        width: 100%;
         position: absolute;
-        right:0px;
-    }
-    beer-list{
-        justify-content: center;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .logo {
-        max-width: 160px;
-        max-height: 160px;
-        margin-top: 60px;
-    }
-
-    .beer-choices {
-        width: 45%;
+        right: 0px;
     }
 
     .beer-overlay p {
         margin-top: 45px;
-    }
-
-    .beer-overlay,
-    .wrongOverlay,
-    .correct-overlay {
-        display: flex;
-        flex-direction: column;
-        font-family: 'Cinzel';
-        align-items: center;
-        justify-content: center;
-        font-size: 8em;
-        color: #F7DBA7;
-        width: 87%;
-        height: 80%;
-        background-color: rgb(30, 45, 47);
-        position: absolute;
-        z-index: 9999;
-        border-left: 5px solid #1E2D2F;
-        border-right: 6px solid #1E2D2F;
     }
 
     .fas {
@@ -588,12 +573,17 @@ a {
 
     .wrongOverlay {
         font-size: 3em;
+        width: 100%;
     }
 
     .correct-overlay {
         font-size: 4em;
         text-align: center;
         flex-direction: column;
+    }
+
+    .winner-winner-chicken-dinner {
+        font-size: 3em;
     }
 
     .correct-overlay p {
@@ -620,17 +610,16 @@ a {
         height: 18%;
         width: 45%;
     }
-    .winner-winner-chicken-dinner {
-        font-size: 4em;
-        width: 89%;
-        height: 84.5%;
-    }
 
     .question-container {
-        margin-top: 0;
+        margin-top: 30%;
         height: 100%;
         top: 50px;
         position: relative;
+    }
+
+    .question {
+        font-size: 3em;
     }
 
     .answers {
@@ -645,17 +634,13 @@ a {
         width: 32%;
         margin-top: 20px;
     }
-
-    .divider {
-        display: block;
-    }
-
 }
 
 @media only screen and (min-width: 1200px) {
     .blurb button {
         font-size: 1.2em;
     }
+
     h2 {
         font-size: 52pt;
     }
@@ -682,9 +667,11 @@ a {
         height: 100%;
         flex-direction: column;
     }
+
     .how-to-play {
         width: 60%;
     }
+
     stats {
         width: 12%;
     }
@@ -699,6 +686,17 @@ a {
         }
     }
 
+    .divider {
+        display: block;
+    }
+
+    .timer {
+        position: fixed;
+        right: 0px;
+        top: 2%;
+        z-index: 0;
+    }
+
     .avatar {
         display: block;
         width: 100px;
@@ -706,6 +704,8 @@ a {
     }
 
     beer-list {
+        position: relative;
+        min-height: 155px;
         flex: 3;
         background-color: #1E2D2F;
         color: #F7DBA7;
@@ -718,9 +718,18 @@ a {
         border-bottom: 3px groove #F7DBA7;
     }
 
+    .pick-a-beer {
+        display: none;
+    }
+
     .beer-name {
         width: 150px;
         margin-left: 5px;
+        font-size: 1.25em;
+    }
+
+    .anim-logo {
+        display: block;
     }
 
     .stats-bar {
@@ -780,7 +789,7 @@ a {
 
     .logo {
         max-height: 150px;
-        max-width: 200px;
+        max-width: 150px;
         margin: 0;
     }
 
@@ -794,6 +803,10 @@ a {
         align-items: center;
     }
 
+    .question-container {
+        margin-top: 10px;
+    }
+
     .answers {
         max-height: 350px;
     }
@@ -805,9 +818,42 @@ a {
         margin-top: 20px;
     }
 
+    #distraction-pic {
+        width: 87.5%;
+    }
+
     .question {
         font-size: 42px;
         width: 80%;
+    }
+
+    .winner-winner-chicken-dinner {
+        font-size: 4em;
+        width: 89%;
+        height: 84.5%;
+    }
+
+    .beer-overlay,
+    .wrongOverlay,
+    .correct-overlay {
+        display: flex;
+        flex-direction: column;
+        font-family: 'Cinzel';
+        align-items: center;
+        justify-content: center;
+        font-size: 7em;
+        color: #F7DBA7;
+        width: 87%;
+        height: 80%;
+        background-color: rgb(30, 45, 47);
+        position: absolute;
+        z-index: 9999;
+        border-left: 5px solid #1E2D2F;
+        border-right: 6px solid #1E2D2F;
+    }
+
+    .wrongOverlay {
+        font-size: 4em;
     }
 
     /* ------- Start Correct Screen ------ */
