@@ -5,19 +5,21 @@ const titleScreen = {
         const vm = this;
         vm.charArray = ["images/girl.png", "images/guy.png", "images/character3.png"];
         vm.charArray = TriviaService.shuffle(vm.charArray);
+        vm.showInstructions = false;
+
+        // Sets the selected character as current user and redirects to the game component
         vm.startGame = (intelligence, tolerance) => {
             TriviaService.setUser(intelligence, tolerance);
             $location.path("/game")
         }
-        vm.showInstructions = false;
 
+        // Toggles display of instruction overlay
         vm.onShow = () => {
-            if (vm.showInstructions === false) {
-                vm.showInstructions = true;
-            } else {
-                vm.showInstructions = false;
-            }
+            vm.showInstructions = !vm.showInstructions;
         }
+
+        // Makes call to BreweryDB API and populates beer array in TriviaService
+        TriviaService.loadBeer()
     }]
 }
 

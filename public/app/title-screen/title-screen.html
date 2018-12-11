@@ -8,25 +8,30 @@
         <p>Hops Academy, prove your worth while your tongue dances with delight! Choose your character and start
             downing that golden brown elixir of mischief! See if you’re able to answer simple trivia questions while
             the game simulates how drunk you are getting.</p>
+            <!-- Button to display instruction overlay -->
         <button ng-click="$ctrl.onShow();">Instructions</button>
     </section>
+    <!-- Instruction overlay -->
     <section ng-show="$ctrl.showInstructions" class="instruction-overlay">
       <img src="../../images/coaster.png">
         <section class="how-to-play">
+
             <ol>
                 <li>Choose a character to start the game.</li>
-                <li>Each Character represents how hard the questions will be and have a randomly assigned tolerance to alcohol.</li>
+                <li>Your character selection determines question difficulty and your tolerance for alcohol.</li>
                 <li>Start each round by clicking a beer to drink. This will update your Buzz.</li>
                 <li>There are 5 rounds, and you must get the questions right to proceed to the next round.</li>
                 <li>The water option will lower your Buzz level and is available only once per game.</li>
                 <li>Watch for all the distractions that are simulated as if you were actually drinking.</li>
             </ol> 
+
             <button ng-click="$ctrl.onShow();">X</button>
         </section>
       <img src="../../images/coaster.png">
     </section>
     <section class="character_choice">
         <h4>Choose a character to start!</h4>
+        <!-- Sections containing characters that pass information to game start function on selection -->
         <section class="characters">
             <section ng-click="$ctrl.startGame('easy', 2);" class="char">
                 <img src={{$ctrl.charArray[0]}}>
