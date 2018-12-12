@@ -81,7 +81,12 @@ beer-list {
 .divider {
     display: none;
 }
-
+.drunk-stat{
+    border: 8px solid transparent;
+}
+.round-num {
+    border: 8px solid transparent;
+}
 .stats-bar {
     display: flex;
     position: absolute;
@@ -131,6 +136,13 @@ beer-list {
     background-color: #1E2D2F;
     color: #F7DBA7;
 }
+@keyframes blinkBorder { 
+    50% { border: 8px solid #F7DBA7;} 
+ }
+ .timer { /*or other element you want*/
+     animation: blinkBorder .5s step-end infinite alternate;
+     border: 8px solid transparent;
+ }
 
 /* title component */
 title-screen {
@@ -713,11 +725,12 @@ a {
             transform: rotate(-15deg);
         }
     }
-
+    .round-num, .drunk-stat {
+        border: none;
+    }
     .divider {
         display: block;
     }
-
     .timer {
         position: fixed;
         right: 0px;
