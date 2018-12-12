@@ -2,7 +2,7 @@
 const beerList = {
     templateUrl: "app/game/beer-list/beer-list.html",
 
-    bindings: { currentBeers: "<", showPick: "=" , showCorrect: "=", showMobilePick: "=", roundNum: "<", timerId: "=", countdown: "&"},
+    bindings: { currentBeers: "<", showPick: "=" , showCorrect: "=", showMobilePick: "=", roundNum: "<", timerId: "=", countdown: "&", waterInventory: "="},
     controller: ["TriviaService", function (TriviaService) {
         const vm = this;
         // Functionality that runs upon selection off beer from provided options
@@ -10,11 +10,15 @@ const beerList = {
             // Updates the users drunkenness based on abv of selected beer
             TriviaService.updateDrunkenness(selectedBeer.abv);
             // Resets array of displayed beers to only contain the selected option
-            for (let i = 0; i <= 2; i++) {
-                if (vm.currentBeers[i].id === selectedBeer.id) {
+            for (let i = 0; i <= vm.currentBeers.length; i++) {
+                if (vm.currentBeers[i].name === selectedBeer.name) {
                     vm.currentBeers = vm.currentBeers.slice(i, i + 1);
                     break;
                 }
+            }
+
+            if (selectedBeer.name === "Water") {
+                vm.waterInventory--;
             }
             // Hides corresponding overlays to effectively start trivia round
             vm.showCorrect = false;
@@ -27,8 +31,8 @@ const beerList = {
             if (vm.roundNum === 5) {
                 TriviaService.setUpCharacters();
             }
-            // Redisplays beer selection screen when on mobile 
-            if (window.matchMedia("(max-width: 600px)").matches) {
+            // Hides beer selection screen when on mobile and tablet 
+            if (window.matchMedia("(max-width: 1200px)").matches) {
                 vm.showMobilePick = false;
             }
         }
