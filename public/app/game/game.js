@@ -15,7 +15,7 @@ const game = {
         vm.showWrong = false;
         vm.showPick = true;
         vm.showMobilePick = true;
-        vm.timeLeft = 15;
+        vm.timeLeft = 20;
         vm.timerId;
         vm.waterInventory = 1;
         // Gets 3 random beers from TriviaService
@@ -28,19 +28,19 @@ const game = {
         })
         // Function called to run Timer. Displays "Out of Time" overlay when time runs out.
         vm.countdown = () => {
-            if (vm.timeLeft === -1) {
+            if (vm.timeLeft === 0) {
                 clearTimeout(vm.timerId);
                 document.getElementById("timeOverlay").style.display = "flex";
             } else {
-                document.getElementById("time").innerText = vm.timeLeft;
                 vm.timeLeft--;
+                document.getElementById("time").innerText = vm.timeLeft;
             }
         };
         // Initializes beginning round state for all variables i.e. hides and showes appropriate overlays, resets timer, gets 3 new beers, adds animations according to round
         vm.newRound = () => {
             vm.roundNum++;
             document.querySelector(".timer").style.zIndex =  "0";
-            vm.timeLeft = 15;
+            vm.timeLeft = 20;
             document.getElementById("time").innerText = vm.timeLeft;
             vm.search();
             vm.currentBeers = TriviaService.getBeer();
