@@ -185,9 +185,13 @@ h4 {
     font-family: "Cinzel";
     font-weight: lighter;
     cursor: pointer;
-
     width: 35%;
     text-align: center;
+    animation: blink 1.4s linear 2;
+    }
+
+    @keyframes blink {
+        50% { background-color: #F7DBA7; color: #1E2D2F}
     }
 
 .instruction-overlay {
@@ -293,7 +297,7 @@ h4 {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     color: white;
 }
 
@@ -500,11 +504,13 @@ a {
 
     .pick-a-beer {
         position: absolute;
+        top: 44%;
         font-size: 4em;
     }
 
     .beer-choices {
         width: 45%;
+        height: initial;
     }
 
     .logo {
@@ -533,12 +539,13 @@ a {
     }
 
     .blurb {
-        font-size: 20px;
+        font-size: 29px;
+        line-height: 1.2;
     }
 
     .instruction-call-btn {
-        height: 5%;
-        font-size: 24px;
+        height: 6%;
+        font-size: 25px;
     }
 
     .title-screen {
@@ -591,13 +598,6 @@ a {
         font-size: 12pt;
     }
 
-    .beer-choices {
-        width: 100%;
-        position: absolute;
-        right: 0px;
-
-    }
-
     .beer-overlay p {
         margin-top: 45px;
     }
@@ -639,6 +639,7 @@ a {
 
     .correct-overlay p {
         color: #F7DBA7;
+        margin
 
     }
 
@@ -663,7 +664,7 @@ a {
     }
 
     .question-container {
-        margin-top: 30%;
+        margin-top: 20%;
         height: 100%;
         top: 50px;
         position: relative;
@@ -711,6 +712,7 @@ a {
     }
 
     .instruction-call-btn {
+        width: 25%;
         height: 5%;
         font-size: 18px;
     }
@@ -927,6 +929,10 @@ a {
 
     .wrongOverlay {
         font-size: 4em;
+    }
+
+    .wrongOverlay p {
+        margin: 30px;
     }
 
     /* ------- Start Correct Screen ------ */
