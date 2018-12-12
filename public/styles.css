@@ -494,11 +494,13 @@ a {
 
     .pick-a-beer {
         position: absolute;
+        top: 42%;
         font-size: 4em;
     }
 
     .beer-choices {
         width: 45%;
+        height: initial;
     }
 
     .logo {
@@ -628,7 +630,7 @@ a {
     }
 
     .question-container {
-        margin-top: 30%;
+        margin-top: 20%;
         height: 100%;
         top: 50px;
         position: relative;

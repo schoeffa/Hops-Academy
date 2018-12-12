@@ -15,11 +15,12 @@ function TriviaService($http, $location) {
         $location.path('/titleScreen');
     }
     // Increments users drunkenness based on abv of selected beer
-    self.updateDrunkenness = (abv) => {
+    self.updateDrunkenness = (abv, roundNum) => {
         self.user.drunkenness = self.user.drunkenness + Math.round((Number(abv) / Number(self.user.tolerance)) + 1);
         if (self.user.drunkenness < 0) {
             self.user.drunkenness = 0;
         }
+        self.addAnimation(roundNum, self.user.drunkenness);
     }
 
     self.getUser = () => {

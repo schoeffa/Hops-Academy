@@ -55,7 +55,6 @@ const game = {
             vm.showCorrect = false;
             vm.showMobilePick = true;
             vm.showTime = false;
-            TriviaService.addAnimation(vm.roundNum, vm.user.drunkenness);
             TriviaService.removeAnimation(vm.roundNum);
         }
         // Function to get current question from Trivia Service
