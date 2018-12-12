@@ -81,7 +81,9 @@ function TriviaService($http, $location) {
                     .replace(/&uacute;/g, "\ú")
                     .replace(/&egrave;/g, "\è")
                     .replace(/&szlig;/g, "\ß")
-                    .replace(/&ecirc;/g, "\ê");
+                    .replace(/&ecirc;/g, "\ê")
+                    .replace(/&ocirc;/g, "\û")
+                    .replace(/&uuml;/g, "\ü");
 
             }
 
