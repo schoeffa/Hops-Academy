@@ -340,7 +340,7 @@ h4 {
         z-index: -10;
     }
 
-    30% {
+    40% {
         opacity: .5;
         z-index: 100;
     }
@@ -651,8 +651,6 @@ a {
 
     .correct-overlay p {
         color: #F7DBA7;
-        margin
-
     }
 
     .correct-overlay-images {

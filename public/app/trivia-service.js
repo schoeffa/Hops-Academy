@@ -15,11 +15,12 @@ function TriviaService($http, $location) {
         $location.path('/titleScreen');
     }
     // Increments users drunkenness based on abv of selected beer
-    self.updateDrunkenness = (abv) => {
+    self.updateDrunkenness = (abv, roundNum) => {
         self.user.drunkenness = self.user.drunkenness + Math.round((Number(abv) / Number(self.user.tolerance)) + 1);
         if (self.user.drunkenness < 0) {
             self.user.drunkenness = 0;
         }
+        self.addAnimation(roundNum, self.user.drunkenness);
     }
 
     self.getUser = () => {
@@ -198,7 +199,7 @@ function TriviaService($http, $location) {
             case 3:
                 let distract = self.findKeyframesRule("distract");
                 document.getElementById("distraction-pic").style.display = "inline-block";
-                document.getElementById("distraction-pic").style.animation = `distract 5s linear 1s infinite alternate`;
+                document.getElementById("distraction-pic").style.animation = `distract 3s linear 1s infinite alternate`;
                 distract.appendRule(`${100-(3 * drunkenness)}% {opacity: 1; z-index: 100;}`);
                 distract.appendRule(`100% {opacity: 1; z-index: 100;}`);
                 break;

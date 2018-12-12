@@ -8,7 +8,7 @@ const beerList = {
         // Functionality that runs upon selection off beer from provided options
         vm.beerSelect = (selectedBeer) => {
             // Updates the users drunkenness based on abv of selected beer
-            TriviaService.updateDrunkenness(selectedBeer.abv);
+            TriviaService.updateDrunkenness(selectedBeer.abv, vm.roundNum);
             // Resets array of displayed beers to only contain the selected option
             for (let i = 0; i <= vm.currentBeers.length; i++) {
                 if (vm.currentBeers[i].name === selectedBeer.name) {
