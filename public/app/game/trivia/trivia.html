@@ -9,8 +9,9 @@
 </section>
 
 <section ng-show="$ctrl.showWrong" class="wrongOverlay">
-    <p>Sorry that was wrong </p>
-    <p>The correct answer is <span style="color:#F7DBA7; display:block">{{ $ctrl.storedCorrect }}</span></p>
+    <p><span style="font-size: 1.33em">Wrong</span></p>
+    <p>The correct answer is</p> 
+    <p><span style="color:white; display:block">{{ $ctrl.storedCorrect }}</span></p>
     <button ng-click="$ctrl.newGame()" class="newGamebutton">Play again?</button>
 </section>
 
