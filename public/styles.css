@@ -193,11 +193,12 @@ h4 {
     border: 3px solid #F7DBA7;
     color: #F7DBA7;
     font-size: 1em;
-    padding: 5px;
+    padding: 5px 7px 5px 7px;
     font-family: "Cinzel";
     font-weight: lighter;
     cursor: pointer;
     width: 35%;
+    min-width: 145px;
     text-align: center;
     animation: blink 1.4s linear 2;
     }
@@ -236,14 +237,6 @@ h4 {
     border-radius: 10px;
     padding: 10px;
     border: none;
-}
-
-.instruction-overlay img {
-    height: 20%;
-    width: 35%;
-    max-width: 143px;
-    box-shadow: 0 0 12px 5px #F7DBA7;
-    border-radius: 400px;
 }
 
 .instruction-overlay button {  /* To exit instructions page  */
@@ -596,18 +589,15 @@ a {
         right:0px; */
     }
 
-    .instruction-overlay img {
-        height: 20%;
-        width: 30%;
-        max-width: 208px;
-        box-shadow: 0 0 12px 5px #F7DBA7;
-        border-radius: 300px;
+    .how-to-play {
+        height: 60%;
+        border-radius: 15px;
+        width: 60%;
     }
 
-    .how-to-play {
-        border-radius: 15px;
-        width: 40%;
-        font-size: 12pt;
+    .how-to-play li {
+        line-height: 1.2;
+        font-size: 22px;
     }
 
     .beer-overlay p {
@@ -651,8 +641,6 @@ a {
 
     .correct-overlay p {
         color: #F7DBA7;
-        margin
-
     }
 
     .correct-overlay-images {
@@ -729,19 +717,6 @@ a {
         font-size: 18px;
     }
 
-    .how-to-play {
-        width: 30%;
-        font-size: 13pt;
-    }
-
-    .instruction-overlay img {
-        height: 25%;
-        width: 14.5%;
-        max-width: 187px; 
-        box-shadow: 0 0 12px 5px #F7DBA7;
-        border-radius: 400px;
-    }
-
     .game-wrapper {
         display: flex;
         flex-wrap: wrap;
@@ -755,8 +730,9 @@ a {
         flex-direction: column;
     }
 
-    .how-to-play {
-        width: 60%;
+    .how-to-play li {
+        font-size: 20px;
+        line-height: 1.3;
     }
 
     stats {
