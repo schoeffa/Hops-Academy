@@ -23,7 +23,7 @@ const game = {
         vm.currentBeers.push({
             name: "Water",
             abv: `${-6 * vm.user.tolerance}`,
-            image: "images/bottled-water.jpg",
+            image: "images/bottled-water.png",
             style: {category: {name: "Cool, refreshing H2O"}}
         })
         // Function called to run Timer. Displays "Out of Time" overlay when time runs out.
@@ -48,7 +48,7 @@ const game = {
                 vm.currentBeers.push({
                     name: "Water",
                     abv: `${-6 * vm.user.tolerance}`,
-                    image: "images/bottled-water.jpg",
+                    image: "images/bottled-water.png",
                     style: {category: {name: "Cool, refreshing H2O"}}
                 });
             }
